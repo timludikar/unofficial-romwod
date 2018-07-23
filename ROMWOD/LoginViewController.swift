@@ -17,6 +17,13 @@ class LoginViewController: UIViewController {
     
     var user = User()
     
+    private lazy var session: URLSession = {
+        let configuration = URLSessionConfiguration.default
+        configuration.waitsForConnectivity = true
+        return URLSession(configuration: configuration,
+                          delegate: self, delegateQueue: nil)
+    }()
+    
     @IBAction func SignSelected(_ sender: UIButton) {
         var errorMessaging = ""
         let login = (username: userNameTextField.text, password: passwordTextField.text, rememberMe: rememberMeSwitch.isOn)
@@ -32,10 +39,9 @@ class LoginViewController: UIViewController {
             resetErrorMessage()
             let userLoginData = Login(email: login.username!, password: login.password!, rememberMe: login.rememberMe)
             loginRequest(userLoginData: userLoginData)
-            
-            self.user = User.createProfile(userNameFromSignin: login.username!, passwordFromSignin: login.password!)
         }
     }
+    
     
     func loginRequest(userLoginData uploadData: Login){
         let url = URL(string: "https://app.romwod.com/api/v1/auth/sign_in")!
@@ -43,37 +49,45 @@ class LoginViewController: UIViewController {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let requestData = try? JSONEncoder().encode(uploadData)
-        let task = URLSession.shared.uploadTask(with: request, from: requestData) { data, response, error in
-            if let error = error {
-                print ("error: \(error)")
-                return
-            }
-            guard let response = response as? HTTPURLResponse,
-                (200...299).contains(response.statusCode) else {
-                    print ("server error")
-                    return
-            }
-
-            if let mimeType = response.mimeType,
-                mimeType == "application/json",
-                let data = data
-                {
-                    guard let result = try? JSONDecoder().decode(Profile.self, from: data) else { return }
-                    print(result)
-                }
-        }
+        let task = session.uploadTask(with: request, from: requestData!)
         task.resume()
         
     }
     
     func failedSignIn(failedError message: String){
-        errorLabel.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-        errorLabel.text = message
+        DispatchQueue.main.async {
+            self.errorLabel.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+            self.errorLabel.text = message
+        }
     }
     
     func resetErrorMessage() {
-        errorLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
-        errorLabel.text = ""
+        DispatchQueue.main.async {
+            self.errorLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+            self.errorLabel.text = ""
+        }
     }
-    
+}
+
+extension LoginViewController: URLSessionDataDelegate {
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
+        guard let response = response as? HTTPURLResponse else {
+            self.failedSignIn(failedError: "Server Error")
+            completionHandler(URLSession.ResponseDisposition.cancel)
+            return
+        }
+        
+        switch (response.statusCode, response.mimeType) {
+        case (200...299, "application/json"):
+            completionHandler(URLSession.ResponseDisposition.allow)
+        default:
+            self.failedSignIn(failedError: "Failed Authenication")
+            completionHandler(URLSession.ResponseDisposition.cancel)
+        }
+    }
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
+        guard let result = try? JSONDecoder().decode(Profile.self, from: data) else { return }
+        self.user.profile = result
+        print(result)
+    }
 }

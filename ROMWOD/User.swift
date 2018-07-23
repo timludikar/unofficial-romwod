@@ -9,12 +9,13 @@
 import Foundation
 
 class User {
-//    lazy var userProfile = Profile()
+    var profile : Profile?
     var isLoggedIn = false
     
-    static func createProfile(userNameFromSignin username: String, passwordFromSignin password: String) -> User {
+    static func createProfile(from profile: Profile) -> User {
         let user = User()
-//        user.userProfile = Profile(username)
+        user.profile = profile
+        user.logUserIn()
         return user
     }
     
