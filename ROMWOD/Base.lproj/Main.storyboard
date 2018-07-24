@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -113,13 +114,16 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="350" id="3ah-YQ-Act"/>
+                                    <constraint firstAttribute="width" secondItem="hIS-1y-bZd" secondAttribute="height" multiplier="350:179" id="2lU-P1-kzM"/>
+                                    <constraint firstAttribute="width" priority="750" constant="800" id="3ah-YQ-Act"/>
                                     <constraint firstAttribute="height" constant="179.33000000000001" id="IFL-1W-ijY"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="hIS-1y-bZd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7uC-hL-E6k" secondAttribute="leading" constant="16" id="6bb-vt-tiP"/>
+                            <constraint firstItem="7uC-hL-E6k" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hIS-1y-bZd" secondAttribute="trailing" constant="16" id="Aiz-Rq-xZx"/>
                             <constraint firstItem="hIS-1y-bZd" firstAttribute="centerX" secondItem="OxX-hk-1dY" secondAttribute="centerX" id="hQ6-kE-c5y"/>
                             <constraint firstItem="hIS-1y-bZd" firstAttribute="centerY" secondItem="OxX-hk-1dY" secondAttribute="centerY" id="yVD-Pf-FCu"/>
                         </constraints>
@@ -129,6 +133,7 @@
                         <outlet property="errorLabel" destination="f3l-SM-4kM" id="jyv-Ao-uzg"/>
                         <outlet property="passwordTextField" destination="ipb-y0-Q1R" id="wuX-Gw-HJj"/>
                         <outlet property="rememberMeSwitch" destination="SvM-HQ-Ex8" id="fSh-ED-giS"/>
+                        <outlet property="signInButton" destination="tA2-9y-3L7" id="UOd-Qm-63n"/>
                         <outlet property="userNameTextField" destination="2Yf-Z8-Kjw" id="v5a-wB-8nq"/>
                     </connections>
                 </viewController>
