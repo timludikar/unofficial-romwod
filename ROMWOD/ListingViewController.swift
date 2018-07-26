@@ -29,7 +29,7 @@ class ListingViewController: UIViewController, RouterDelegate {
         let req = ScheduleRequest(dateOf: Date().userDate())
         let urlRequest = URLRequest(url: req.url)
         
-        wo.fetch(with: urlRequest){ result in
+        wo.getAll(from: urlRequest){ result in
             switch result {
             case let .success(returnedValue):
                 print(returnedValue)
@@ -45,7 +45,7 @@ class ListingViewController: UIViewController, RouterDelegate {
     
     func requestDidFinish(_ sender: Router, receivedData data: Data?) {
         if let data = data {
-            guard let result = try? JSONDecoder().decode(ResponseData<ScheduleResponse>.self, from: data) else {
+            guard let result = try? JSONDecoder().decode(ResponseData.self, from: data) else {
                 return 
             }
             

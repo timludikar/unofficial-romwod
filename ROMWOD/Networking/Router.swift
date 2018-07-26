@@ -10,7 +10,7 @@ import Foundation
 
 protocol Router {
     var session: URLSession { get }
-    func fetch(with request: URLRequest, completion: @escaping((Result) -> Void ))
+    func fetch<T: Decodable>(with request: URLRequest, completion: @escaping((Result<T>) -> Void ))
 }
 
 extension Router {
@@ -29,18 +29,17 @@ extension Router {
         }
     }
     
-    func fetch(with request: URLRequest, completion: @escaping((Result) -> Void)) {
+    func fetch<T: Decodable>(with request: URLRequest, completion: @escaping((Result<T>) -> Void )) {
         let task = session.dataTask(with: request){ data, response, error in
             guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
                 completion(Result.failure)
                 return
             }
             
-            if !((data?.isEmpty)!) {
-                completion(Result.success(data!))
-            } else {
-                completion(.failure)
+            guard let result = try? JSONDecoder().decode(T.self, from: data!) else {
+                return
             }
+            completion(Result.success(result))
         }
         task.resume()
     }

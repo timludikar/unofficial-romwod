@@ -8,8 +8,8 @@
 
 import Foundation
 
-enum Result {
-    case success(Data)
+enum Result<T> {
+    case success(T)
     case failure
 }
 
@@ -18,16 +18,19 @@ enum Response {
 }
 
 class Workouts: Router {
-    
     let session: URLSession
     
     init(configuration: URLSessionConfiguration){
         self.session = URLSession(configuration: configuration)
-    }    
+    }
+    
+    func getAll(from url: URLRequest, completion: @escaping((Result<ResponseData>)->Void)) {
+        fetch(with: url, completion: completion)
+    }
 }
 
-struct ResponseData<Element: Decodable>: Decodable {
-    var response: [Element]
+struct ResponseData: Decodable {
+    var response: [ScheduleResponse]
     
     enum CodingKeys: String, CodingKey {
         case response = "data"
