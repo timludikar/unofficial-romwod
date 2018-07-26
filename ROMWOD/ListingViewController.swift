@@ -24,19 +24,19 @@ class ListingViewController: UIViewController, RouterDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let wo = Workouts(configuration: URLSessionConfiguration.default)
         let req = ScheduleRequest(dateOf: Date().userDate())
-        print(req.url)
+        let urlRequest = URLRequest(url: req.url)
         
-//        let request = httpRequest(proto: "https://", base: "app.romwod.com/api/v1/weekly_schedules?archived=false&user_date=\(Date().userDate())", method: HTTPMethod.get)
-//        let url = URL(string: "https://app.romwod.com/api/v1/weekly_schedules?archived=false&user_date=2018-7-24")!
-//        let request = URLRequest(url: url)
-//
-//
-        
-//        self.router = Router()
-//        self.router?.delegate = self
-//        self.router?.makeRequest(to: request)
+        wo.fetch(with: urlRequest){ result in
+            switch result {
+            case let .success(returnedValue):
+                print(returnedValue)
+            default:
+                break
+            }
+        }
     }
 
     func requestFailed(_ sender: Router, error: Error) {
@@ -44,8 +44,14 @@ class ListingViewController: UIViewController, RouterDelegate {
     }
     
     func requestDidFinish(_ sender: Router, receivedData data: Data?) {
-        if let data = data, let result = String(data: data, encoding: .utf8) {
-            print("\n\n\nRECEIVED! \(result)")
+        if let data = data {
+            guard let result = try? JSONDecoder().decode(ResponseData<ScheduleResponse>.self, from: data) else {
+                return 
+            }
+            
+            for item in result.response {
+                print(item.id)
+            }
         }
     
     }

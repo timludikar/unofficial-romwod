@@ -8,13 +8,10 @@
 
 import Foundation
 
-
-//app.romwod.com/api/v1/weekly_schedules?archived=false&user_date=\(Date().userDate())"
-
 struct ScheduleRequest {
     var userDate: String?
     var archived: Bool?
-    var url: URLComponents {
+    var url: URL {
         get {
             var url = URLComponents(string: ROMWOD.WEEKLY)!
             var queryItems = [URLQueryItem]()
@@ -29,7 +26,7 @@ struct ScheduleRequest {
             
             !queryItems.isEmpty ? url.queryItems = queryItems : ()
             
-            return url
+            return url.url!
         }
     }
     

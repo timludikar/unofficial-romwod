@@ -9,6 +9,9 @@
 import Foundation
 
 protocol RouterDelegate: class {
+    var router: Router? { get }
     func requestDidFinish(_ sender: Router, receivedData data: Data?)
     func requestFailed(_ sender: Router, error: Error)
 }
+
+extension RouterDelegate {}

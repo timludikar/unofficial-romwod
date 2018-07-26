@@ -13,6 +13,9 @@
 		9025950D2108E55A0056987E /* SynchronousDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9025950C2108E55A0056987E /* SynchronousDataTask.swift */; };
 		9025950F2108FDE50056987E /* ScheduleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9025950E2108FDE50056987E /* ScheduleRequest.swift */; };
 		902595112109009D0056987E /* URLContants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902595102109009D0056987E /* URLContants.swift */; };
+		90259515210A06370056987E /* ScheduleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90259514210A06370056987E /* ScheduleResponse.swift */; };
+		90259517210A180D0056987E /* ScheduledWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90259516210A180D0056987E /* ScheduledWorkout.swift */; };
+		90259519210A18200056987E /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90259518210A18200056987E /* Response.swift */; };
 		9087AFFC20F4EAB000179EFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9087AFFB20F4EAB000179EFB /* AppDelegate.swift */; };
 		9087B00320F4EAB000179EFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9087B00120F4EAB000179EFB /* Main.storyboard */; };
 		9087B00520F4EAB200179EFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9087B00420F4EAB200179EFB /* Assets.xcassets */; };
@@ -48,6 +51,9 @@
 		9025950C2108E55A0056987E /* SynchronousDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronousDataTask.swift; sourceTree = "<group>"; };
 		9025950E2108FDE50056987E /* ScheduleRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleRequest.swift; sourceTree = "<group>"; };
 		902595102109009D0056987E /* URLContants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLContants.swift; sourceTree = "<group>"; };
+		90259514210A06370056987E /* ScheduleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleResponse.swift; sourceTree = "<group>"; };
+		90259516210A180D0056987E /* ScheduledWorkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledWorkout.swift; sourceTree = "<group>"; };
+		90259518210A18200056987E /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		9087AFF820F4EAB000179EFB /* ROMWOD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ROMWOD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9087AFFB20F4EAB000179EFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9087B00220F4EAB000179EFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -113,6 +119,9 @@
 			isa = PBXGroup;
 			children = (
 				9025950E2108FDE50056987E /* ScheduleRequest.swift */,
+				90259514210A06370056987E /* ScheduleResponse.swift */,
+				90259518210A18200056987E /* Response.swift */,
+				90259516210A180D0056987E /* ScheduledWorkout.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -313,9 +322,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9025950D2108E55A0056987E /* SynchronousDataTask.swift in Sources */,
+				90259517210A180D0056987E /* ScheduledWorkout.swift in Sources */,
 				9087B03020F8D7B400179EFB /* LoginViewController.swift in Sources */,
 				9025950B2108E53A0056987E /* RouterProtocol.swift in Sources */,
 				90045A9F2107B34000227D18 /* Router.swift in Sources */,
+				90259515210A06370056987E /* ScheduleResponse.swift in Sources */,
+				90259519210A18200056987E /* Response.swift in Sources */,
 				902595112109009D0056987E /* URLContants.swift in Sources */,
 				9087B03520FCE1BA00179EFB /* Profile.swift in Sources */,
 				9087AFFC20F4EAB000179EFB /* AppDelegate.swift in Sources */,

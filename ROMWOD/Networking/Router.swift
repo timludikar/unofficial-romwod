@@ -8,15 +8,13 @@
 
 import Foundation
 
-enum RequestMethod: String {
-    case get = "GET"
-    case post = "POST"
+protocol Router {
+    var session: URLSession { get }
+    func fetch(with request: URLRequest, completion: @escaping((Result) -> Void ))
 }
 
-class Router {
-    weak var delegate: RouterDelegate?
-    
-    private func checkIfCookiesAreSet() -> [HTTPCookie]? {
+extension Router {
+    var checkIfCookiesAreSet: [HTTPCookie]? {
         return HTTPCookieStorage.shared.cookies(for: URL(string: String("app.romwod.com"))!)
     }
     
@@ -31,29 +29,24 @@ class Router {
         }
     }
     
-    func buildRequestMethod(with url: URLRequest, completionHandler: @escaping(Data?, URLResponse?, Error?) -> Void ) -> URLSessionTask {
-        return URLSession.shared.dataTask(with: url){ completionHandler($0, $1, $2) }        
-    }
-  
-    func makeRequest(to url: URLRequest){
-        if checkIfCookiesAreSet()?.isEmpty == true {
-            getIndexRequest(to: URL(string: ROMWOD.APP)!)
-        }
-        
-        let task = buildRequestMethod(with: url){ data, response, error in
-            if let error = error {
-                self.delegate?.requestFailed(self, error: error)
-                return
-            }
-            
+    func fetch(with request: URLRequest, completion: @escaping((Result) -> Void)) {
+        let task = session.dataTask(with: request){ data, response, error in
             guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+                completion(Result.failure)
                 return
             }
             
-            if let mimeType = httpResponse.mimeType, mimeType == "application/json", let data = data {
-                self.delegate?.requestDidFinish(self, receivedData: data)
+            if !((data?.isEmpty)!) {
+                completion(Result.success(data!))
+            } else {
+                completion(.failure)
             }
         }
         task.resume()
     }
+    
+    func buildRequestMethod(with url: URLRequest, completionHandler: @escaping(Data?, URLResponse?, Error?) -> Void ) -> URLSessionTask {
+        return URLSession.shared.dataTask(with: url){ completionHandler($0, $1, $2) }
+    }
+
 }
