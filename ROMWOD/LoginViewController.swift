@@ -46,9 +46,18 @@ class LoginViewController: UIViewController {
             failedSignIn(failedError: errorMessaging)
         default:
             resetErrorMessage()
+            let url = URL(string: "https://app.romwod.com/api/v1/auth/sign_in")!
+            let request = URLRequest(url: url)
             let userLoginData = Login(email: login.username!, password: login.password!, rememberMe: login.rememberMe)
+            userLoginData.login(with: request) { results in
+                switch results {
+                case let .success(returnedValue):
+                    print(returnedValue)
+                case let .failure(errorValue):
+                    print(errorValue)
+                }
+            }
             addProgressIndicator(signInButton)
-            loginRequest(userLoginData: userLoginData)
         }
     }
     

@@ -11,6 +11,7 @@ import Foundation
 protocol Router {
     var session: URLSession { get }
     func fetch<T: Decodable>(with request: URLRequest, completion: @escaping((Result<T, RequestError>) -> Void ))
+    func upload<T: Encodable, S: Decodable>(with request: URLRequest, from uploadData: T, completion: @escaping((Result<S, RequestError>) -> Void ))
 }
 
 extension Router {
@@ -27,6 +28,23 @@ extension Router {
         default:
             break
         }
+    }
+    
+    func upload<T: Encodable, S: Decodable>(with request: URLRequest, from uploadData: T, completion: @escaping((Result<S, RequestError>) -> Void )){
+        let requestData = try? JSONEncoder().encode(uploadData)
+        let task = session.uploadTask(with: request, from: requestData!){ data, response, error in
+            guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+                completion(Result.failure(RequestError.requestFailed))
+                return
+            }
+            
+            guard let result = try? JSONDecoder().decode(S.self, from: data!) else {
+                completion(Result.failure(RequestError.jsonParseError))
+                return
+            }
+            completion(Result.success(result))
+        }
+        task.resume()
     }
     
     func fetch<T: Decodable>(with request: URLRequest, completion: @escaping((Result<T, RequestError>) -> Void )) {

@@ -8,18 +8,6 @@
 
 import Foundation
 
-struct Login: Codable {
-    var email: String
-    var password: String
-    var rememberMe: Bool
-    
-    enum CodingKeys: String, CodingKey {
-        case email = "username"
-        case password
-        case rememberMe = "remember_me"
-    }
-}
-
 struct Profile: Decodable {
     var id: Int
     var first_name: String
