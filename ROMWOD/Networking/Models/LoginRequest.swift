@@ -25,7 +25,7 @@ struct Login: Router {
         self.rememberMe = rememberMe
     }
     
-    func login(with url: URLRequest, completion: @escaping((Result<ResponseData, RequestError>)->Void)){
+    func login(with url: URLRequest, completion: @escaping((Result<Profile, RequestError>)->Void)){
         upload(with: url, from: self, completion: completion)
     }
     

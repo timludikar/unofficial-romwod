@@ -16,7 +16,11 @@ enum Result<T, U> where U: Error {
 enum RequestError: Error {
     case requestFailed
     case jsonParseError
+    case authenicationError
+    case unknownError
 }
+
+
 
 struct ResponseData: Decodable {
     var response: [ScheduleResponse]

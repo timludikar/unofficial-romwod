@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "Router.makeRequest(to:):Router.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in Router.fetch(with:):Router.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ScheduleRequest.url.getter:ScheduleRequest.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in Router.makeRequest(to:):Router.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in Router.upload&lt;A, B&gt;(with:from:completion:):Router.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ListingViewController.requestDidFinish(_:receivedData:):ListingViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "Router.getIndexRequest(to:):Router.swift">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

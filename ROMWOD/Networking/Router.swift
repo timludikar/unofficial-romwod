@@ -31,24 +31,34 @@ extension Router {
     }
     
     func upload<T: Encodable, S: Decodable>(with request: URLRequest, from uploadData: T, completion: @escaping((Result<S, RequestError>) -> Void )){
+        let url = URL(string: "https://app.romwod.com")!
+        checkIfCookiesAreSet!.isEmpty ? getIndexRequest(to: url) : ()
         let requestData = try? JSONEncoder().encode(uploadData)
-        let task = session.uploadTask(with: request, from: requestData!){ data, response, error in
-            guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+        let task = URLSession.shared.uploadTask(with: request, from: requestData!){ data, response, error in
+            
+            guard let response = response as? HTTPURLResponse else {
                 completion(Result.failure(RequestError.requestFailed))
                 return
             }
             
-            guard let result = try? JSONDecoder().decode(S.self, from: data!) else {
-                completion(Result.failure(RequestError.jsonParseError))
-                return
+            switch (response.statusCode, response.mimeType) {
+            case (401,"application/json"):
+                completion(Result.failure(RequestError.authenicationError))
+            case (200...299, "application/json"):
+                guard let result = try? JSONDecoder().decode(S.self, from: data!) else {
+                    completion(Result.failure(RequestError.jsonParseError))
+                    return
+                }
+                completion(Result.success(result))
+            default:
+                completion(Result.failure(RequestError.unknownError))
             }
-            completion(Result.success(result))
         }
         task.resume()
     }
     
     func fetch<T: Decodable>(with request: URLRequest, completion: @escaping((Result<T, RequestError>) -> Void )) {
-        let task = session.dataTask(with: request){ data, response, error in
+        let task = URLSession.shared.dataTask(with: request){ data, response, error in
             guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
                 completion(Result.failure(RequestError.requestFailed))
                 return
@@ -62,9 +72,4 @@ extension Router {
         }
         task.resume()
     }
-    
-    func buildRequestMethod(with url: URLRequest, completionHandler: @escaping(Data?, URLResponse?, Error?) -> Void ) -> URLSessionTask {
-        return URLSession.shared.dataTask(with: url){ completionHandler($0, $1, $2) }
-    }
-
 }

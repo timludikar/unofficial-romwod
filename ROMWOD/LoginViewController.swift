@@ -18,14 +18,6 @@ class LoginViewController: UIViewController {
 
     var user = User()
     private var inProgressIndicator = UIActivityIndicatorView()
-
-    private lazy var session: URLSession = {
-        let configuration = URLSessionConfiguration.default
-        configuration.waitsForConnectivity = true
-        configuration.sharedContainerIdentifier = "romwod"
-        return URLSession(configuration: configuration,
-                          delegate: self, delegateQueue: nil)
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,18 +38,24 @@ class LoginViewController: UIViewController {
             failedSignIn(failedError: errorMessaging)
         default:
             resetErrorMessage()
+            addProgressIndicator(signInButton)
+            
             let url = URL(string: "https://app.romwod.com/api/v1/auth/sign_in")!
-            let request = URLRequest(url: url)
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
             let userLoginData = Login(email: login.username!, password: login.password!, rememberMe: login.rememberMe)
             userLoginData.login(with: request) { results in
                 switch results {
                 case let .success(returnedValue):
+                    self.removeProgressIndicator(self.signInButton)
                     print(returnedValue)
                 case let .failure(errorValue):
+                    self.removeProgressIndicator(self.signInButton)
                     print(errorValue)
                 }
             }
-            addProgressIndicator(signInButton)
         }
     }
     
@@ -81,19 +79,6 @@ class LoginViewController: UIViewController {
         }
     }
     
-    func loginRequest(userLoginData uploadData: Login){
-        let url = URL(string: "https://app.romwod.com/api/v1/auth/sign_in")!
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("app.romwod.com", forHTTPHeaderField: "authority")
-        request.setValue("https://app.romwod.com/users/sign_in", forHTTPHeaderField: "referer")
-        request.setValue("https://app.romwod.com", forHTTPHeaderField: "origin")
-        let requestData = try? JSONEncoder().encode(uploadData)
-        let task = session.uploadTask(with: request, from: requestData!)
-        task.resume()
-    }
-    
     func failedSignIn(failedError message: String){
         DispatchQueue.main.async {
             self.errorLabel.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
@@ -109,30 +94,3 @@ class LoginViewController: UIViewController {
     }
 }
 
-extension LoginViewController: URLSessionDataDelegate {
-    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
-        removeProgressIndicator(signInButton)
-        guard let response = response as? HTTPURLResponse else {
-            self.failedSignIn(failedError: "Server Error")
-            completionHandler(URLSession.ResponseDisposition.cancel)
-            return
-        }
-        
-        switch (response.statusCode, response.mimeType) {
-        case (401,"application/json"):
-            
-            completionHandler(URLSession.ResponseDisposition.cancel)
-        case (200...299, "application/json"):
-            completionHandler(URLSession.ResponseDisposition.allow)
-        default:
-            self.failedSignIn(failedError: "Failed Authenication")
-            completionHandler(URLSession.ResponseDisposition.cancel)
-        }
-    }
-    
-    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
-        guard let result = try? JSONDecoder().decode(Profile.self, from: data) else { return }
-        self.user.profile = result
-        print(result)
-    }
-}
