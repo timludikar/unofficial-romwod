@@ -8,10 +8,41 @@
 
 import Foundation
 
-struct ScheduleRequest {
+struct ScheduleRequest: Router {
+    
+    let session: URLSession
+    
+    init(){
+        self.init(configuration: URLSessionConfiguration.default)
+    }
+    
+    init(configuration: URLSessionConfiguration){
+        self.session = URLSession(configuration: configuration)
+    }
+    
+    init(dateOf userDate: String?) {
+        self.init(configuration: URLSessionConfiguration.default)
+        self.userDate = userDate
+    }
+    
+    init(is archived: Bool?) {
+        self.init(configuration: URLSessionConfiguration.default)
+        self.archived = archived
+    }
+    
+    init(dateOf userDate: String?, is archived: Bool?){
+        self.init(configuration: URLSessionConfiguration.default)
+        self.userDate = userDate
+        self.archived = archived
+    }
+    
+    func getAll(completion: @escaping((Result<ResponseData, RequestError>)->Void)) {
+        fetch(with: self.url, completion: completion)
+    }
+    
     var userDate: String?
     var archived: Bool?
-    var url: URL {
+    var url: URLRequest {
         get {
             var url = URLComponents(string: ROMWOD.WEEKLY)!
             var queryItems = [URLQueryItem]()
@@ -26,22 +57,7 @@ struct ScheduleRequest {
             
             !queryItems.isEmpty ? url.queryItems = queryItems : ()
             
-            return url.url!
+            return URLRequest(url: url.url!)
         }
-    }
-    
-    init() {}
-    
-    init(dateOf userDate: String?) {
-        self.userDate = userDate
-    }
-    
-    init(is archived: Bool?) {
-        self.archived = archived
-    }
-    
-    init(dateOf userDate: String?, is archived: Bool?){
-        self.userDate = userDate
-        self.archived = archived
     }
 }

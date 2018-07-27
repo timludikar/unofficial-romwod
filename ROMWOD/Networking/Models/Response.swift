@@ -8,25 +8,14 @@
 
 import Foundation
 
-enum Result<T> {
+enum Result<T, U> where U: Error {
     case success(T)
-    case failure
+    case failure(U)
 }
 
-enum Response {
-    case workoutSchedule
-}
-
-class Workouts: Router {
-    let session: URLSession
-    
-    init(configuration: URLSessionConfiguration){
-        self.session = URLSession(configuration: configuration)
-    }
-    
-    func getAll(from url: URLRequest, completion: @escaping((Result<ResponseData>)->Void)) {
-        fetch(with: url, completion: completion)
-    }
+enum RequestError: Error {
+    case requestFailed
+    case jsonParseError
 }
 
 struct ResponseData: Decodable {

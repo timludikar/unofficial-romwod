@@ -18,41 +18,19 @@ extension Date {
     }
 }
 
-class ListingViewController: UIViewController, RouterDelegate {
-    
-    var router: Router?
+class ListingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let wo = Workouts(configuration: URLSessionConfiguration.default)
         let req = ScheduleRequest(dateOf: Date().userDate())
-        let urlRequest = URLRequest(url: req.url)
-        
-        wo.getAll(from: urlRequest){ result in
-            switch result {
+        req.getAll { results in
+            switch results {
             case let .success(returnedValue):
                 print(returnedValue)
-            default:
-                break
+            case let .failure(errorValue):
+                print(errorValue)
             }
         }
-    }
-
-    func requestFailed(_ sender: Router, error: Error) {
-        print(error)
-    }
-    
-    func requestDidFinish(_ sender: Router, receivedData data: Data?) {
-        if let data = data {
-            guard let result = try? JSONDecoder().decode(ResponseData.self, from: data) else {
-                return 
-            }
-            
-            for item in result.response {
-                print(item.id)
-            }
-        }
-    
     }
 }
