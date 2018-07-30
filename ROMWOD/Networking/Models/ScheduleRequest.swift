@@ -8,38 +8,7 @@
 
 import Foundation
 
-struct ScheduleRequest: Router {
-    
-    let session: URLSession
-    
-    init(){
-        self.init(configuration: URLSessionConfiguration.default)
-    }
-    
-    init(configuration: URLSessionConfiguration){
-        self.session = URLSession(configuration: configuration)
-    }
-    
-    init(dateOf userDate: String?) {
-        self.init(configuration: URLSessionConfiguration.default)
-        self.userDate = userDate
-    }
-    
-    init(is archived: Bool?) {
-        self.init(configuration: URLSessionConfiguration.default)
-        self.archived = archived
-    }
-    
-    init(dateOf userDate: String?, is archived: Bool?){
-        self.init(configuration: URLSessionConfiguration.default)
-        self.userDate = userDate
-        self.archived = archived
-    }
-    
-    func getAll(completion: @escaping((Result<ResponseData, RequestError>)->Void)) {
-        fetch(with: self.url, completion: completion)
-    }
-    
+struct ScheduleRequest: Request {
     var userDate: String?
     var archived: Bool?
     var url: URLRequest {

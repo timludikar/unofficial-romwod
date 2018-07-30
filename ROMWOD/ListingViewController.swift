@@ -20,11 +20,14 @@ extension Date {
 
 class ListingViewController: UIViewController {
     
+    let httpClient = HTTPClient()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let req = ScheduleRequest(dateOf: Date().userDate())
-        req.getAll { results in
+        let req = ScheduleRequest()
+        
+        httpClient.getSchedule(from: req.url) { results in
             switch results {
             case let .success(returnedValue):
                 print(returnedValue)

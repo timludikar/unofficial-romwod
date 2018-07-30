@@ -20,7 +20,16 @@ enum RequestError: Error {
     case unknownError
 }
 
+enum ResponseType {
+    case valid
+    case invalid(error: RequestError)
+}
 
+//protocol Response: Decodable {}
+
+protocol Request: Encodable {
+    var url: URLRequest { get }
+}
 
 struct ResponseData: Decodable {
     var response: [ScheduleResponse]

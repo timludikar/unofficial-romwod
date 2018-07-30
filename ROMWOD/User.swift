@@ -9,10 +9,10 @@
 import Foundation
 
 class User {
-    var profile : Profile?
+    var profile : ProfileResponse?
     var isLoggedIn = false
     
-    static func createProfile(from profile: Profile) -> User {
+    static func createProfile(from profile: ProfileResponse) -> User {
         let user = User()
         user.profile = profile
         user.logUserIn()

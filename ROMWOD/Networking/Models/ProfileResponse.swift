@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Profile: Decodable {
+struct ProfileResponse: Decodable {
     var id: Int
     var first_name: String
     var last_name: String

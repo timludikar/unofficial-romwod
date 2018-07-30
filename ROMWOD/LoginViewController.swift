@@ -17,6 +17,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var signInButton: UIButton!
 
     var user = User()
+    var httpClient = HTTPClient()
+    
     private var inProgressIndicator = UIActivityIndicatorView()
     
     override func viewDidLoad() {
@@ -40,14 +42,9 @@ class LoginViewController: UIViewController {
             resetErrorMessage()
             addProgressIndicator(signInButton)
             
-            let url = URL(string: "https://app.romwod.com/api/v1/auth/sign_in")!
-            var request = URLRequest(url: url)
-            request.httpMethod = "POST"
-            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-
-            let userLoginData = Login(email: login.username!, password: login.password!, rememberMe: login.rememberMe)
-            userLoginData.login(with: request) { results in
-                switch results {
+            let userLoginData = LoginRequest(email: login.username!, password: login.password!, rememberMe: login.rememberMe)
+            httpClient.signIn(from: userLoginData.url, with: userLoginData){ result in
+                switch result {
                 case let .success(returnedValue):
                     self.removeProgressIndicator(self.signInButton)
                     print(returnedValue)

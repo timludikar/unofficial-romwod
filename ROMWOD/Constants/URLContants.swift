@@ -16,6 +16,7 @@ struct ROMWOD {
     private struct ROUTES {
         static let API = "/api/v1/"
         static let WEEKLY = API + "weekly_schedules"
+        static let SIGNIN = API + "/auth/sign_in"
     }
     
     static var APP: String {
@@ -28,6 +29,10 @@ struct ROMWOD {
     
     static var WEEKLY: String {
         return DOMAINS.PROD + ROUTES.WEEKLY
+    }
+    
+    static var SIGNIN: String {
+        return DOMAINS.PROD + ROUTES.SIGNIN
     }
     
 }
