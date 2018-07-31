@@ -135,6 +135,7 @@
                         <outlet property="rememberMeSwitch" destination="SvM-HQ-Ex8" id="fSh-ED-giS"/>
                         <outlet property="signInButton" destination="tA2-9y-3L7" id="UOd-Qm-63n"/>
                         <outlet property="userNameTextField" destination="2Yf-Z8-Kjw" id="v5a-wB-8nq"/>
+                        <segue destination="uY4-Vw-Mel" kind="show" identifier="Show Index Screen" id="e6e-zt-h7h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UyV-7S-h8A" userLabel="First Responder" sceneMemberID="firstResponder"/>

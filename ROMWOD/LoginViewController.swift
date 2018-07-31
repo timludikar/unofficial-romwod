@@ -43,11 +43,15 @@ class LoginViewController: UIViewController {
             addProgressIndicator(signInButton)
             
             let userLoginData = LoginRequest(email: login.username!, password: login.password!, rememberMe: login.rememberMe)
-            httpClient.signIn(from: userLoginData.url, with: userLoginData){ result in
+            
+            httpClient.signIn(from: userLoginData.url, with: userLoginData){ [unowned self] (result) -> Void in
                 switch result {
                 case let .success(returnedValue):
                     self.removeProgressIndicator(self.signInButton)
                     print(returnedValue)
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "Show Index Screen", sender: nil)
+                    }
                 case let .failure(errorValue):
                     self.removeProgressIndicator(self.signInButton)
                     print(errorValue)
