@@ -157,8 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				90045A922107A5BD00227D18 /* ListingViewController.swift */,
-				90B7AE302111316900BA2905 /* UIVideoThumbnail.xib */,
-				90B7AE32211133F300BA2905 /* UIVideoThumbnail.swift */,
+				90B7AE34211227A700BA2905 /* Views */,
 				9087B02F20F8D7B400179EFB /* LoginViewController.swift */,
 				9087B03220FCCD6E00179EFB /* User.swift */,
 				9087B03120FCCCC300179EFB /* Supporting Files */,
@@ -196,6 +195,23 @@
 				9087B00620F4EAB200179EFB /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		90B7AE34211227A700BA2905 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				90B7AE35211227B400BA2905 /* UIVideoThumbnail */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		90B7AE35211227B400BA2905 /* UIVideoThumbnail */ = {
+			isa = PBXGroup;
+			children = (
+				90B7AE302111316900BA2905 /* UIVideoThumbnail.xib */,
+				90B7AE32211133F300BA2905 /* UIVideoThumbnail.swift */,
+			);
+			path = UIVideoThumbnail;
 			sourceTree = "<group>";
 		};
 		90F04BA22110AC45005660EF /* Utilites */ = {

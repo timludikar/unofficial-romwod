@@ -10,18 +10,13 @@ import UIKit
 
 @IBDesignable class UIVideoThumbnail: UIView {
     
+    @IBInspectable @IBOutlet weak var title: UILabel!
+    @IBInspectable @IBOutlet weak var date: UILabel!
+    @IBInspectable @IBOutlet weak var desc: UILabel!
+    @IBInspectable @IBOutlet weak var thumbnail: UIImageView!
+    
     let nibName = "UIVideoThumbnail"
     var contentView : UIView!
-        
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//        xibSetup()
-//    }
-//
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        xibSetup()
-//    }
     
     override open func awakeFromNib() {
         super.awakeFromNib()
@@ -50,13 +45,4 @@ import UIKit
         xibSetup()
         contentView?.prepareForInterfaceBuilder()
     }
-    
-    
-//    func xibSetup() {
-//        Bundle.main.loadNibNamed("UIVideoThumbnail", owner: self, options: nil)
-//        addSubview(contentView)
-//        contentView.frame = self.bounds
-//        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-//    }
-
 }

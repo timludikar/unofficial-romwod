@@ -81,24 +81,18 @@ class LoginViewController: UIViewController {
     }
     
     func removeProgressIndicator(_ parent: UIButton) {
-        DispatchQueue.main.async {
-            self.inProgressIndicator.removeFromSuperview()
-            parent.isEnabled = true
-        }
+        self.inProgressIndicator.removeFromSuperview()
+        parent.isEnabled = true
     }
     
     func failedSignIn(failedError message: String){
-        DispatchQueue.main.async {
-            self.errorLabel.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-            self.errorLabel.text = message
-        }
+        self.errorLabel.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+        self.errorLabel.text = message
     }
     
     func resetErrorMessage() {
-        DispatchQueue.main.async {
-            self.errorLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
-            self.errorLabel.text = ""
-        }
+        self.errorLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+        self.errorLabel.text = ""
     }
 }
 
