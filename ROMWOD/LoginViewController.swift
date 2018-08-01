@@ -42,21 +42,28 @@ class LoginViewController: UIViewController {
             resetErrorMessage()
             addProgressIndicator(signInButton)
             
-            let userLoginData = LoginRequest(email: login.username!, password: login.password!, rememberMe: login.rememberMe)
             
-            httpClient.signIn(from: userLoginData.url, with: userLoginData){ [unowned self] (result) -> Void in
-                switch result {
-                case let .success(returnedValue):
-                    self.removeProgressIndicator(self.signInButton)
-                    print(returnedValue)
-                    DispatchQueue.main.async {
-                        self.performSegue(withIdentifier: "Show Index Screen", sender: nil)
+            if (Bundle.main.infoDictionary!["BYPASS_LOGIN"] as? Bool)! {
+                let userLoginData = LoginRequest(email: login.username!, password: login.password!, rememberMe: login.rememberMe)
+                
+                httpClient.signIn(from: userLoginData.url, with: userLoginData){ [unowned self] (result) -> Void in
+                    switch result {
+                    case let .success(returnedValue):
+                        self.removeProgressIndicator(self.signInButton)
+                        print(returnedValue)
+                        DispatchQueue.main.async {
+                            self.performSegue(withIdentifier: "Show Index Screen", sender: nil)
+                        }
+                    case let .failure(errorValue):
+                        self.removeProgressIndicator(self.signInButton)
+                        print(errorValue)
                     }
-                case let .failure(errorValue):
-                    self.removeProgressIndicator(self.signInButton)
-                    print(errorValue)
                 }
+            } else {
+                performSegue(withIdentifier: "Show Index Screen", sender: nil)
             }
+            
+            
         }
     }
     

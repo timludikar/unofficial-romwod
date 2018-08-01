@@ -30,7 +30,26 @@ class ListingViewController: UIViewController {
         httpClient.getSchedule(from: req.url) { results in
             switch results {
             case let .success(returnedValue):
-                print(returnedValue)
+                DispatchQueue.main.async {
+                    let workouts = returnedValue.response.first as? ScheduleResponse
+                    
+                    guard let today = workouts?.find(today: "2018-07-30T00:00:00.000Z").first else {
+                        return
+                    }
+                    
+                    print(self.view.subviews)
+                    
+                    print(today.name)
+//                    let detail = UIVideoThumbnail(frame: CGRect.zero)
+//                    self.view.addSubview(detail)
+//                    detail.title.text = "TEST"
+//                    detail.date.text = today.date
+//                    detail.desc.text = today.description
+                    
+                    
+                }
+
+//                print(returnedValue.response.find(today: "2018-07-30T00:00:00.000Z"))
             case let .failure(errorValue):
                 print(errorValue)
             }

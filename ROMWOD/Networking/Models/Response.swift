@@ -25,8 +25,6 @@ enum ResponseType {
     case invalid(error: RequestError)
 }
 
-//protocol Response: Decodable {}
-
 protocol Request: Encodable {
     var url: URLRequest { get }
 }
