@@ -28,6 +28,7 @@ struct ScheduleResponse: Decodable {
         case workouts = "scheduled_workouts"
     }
     
+    
     func find(today date: String) -> [ScheduledWorkouts] {
         return workouts.filter({ (workout) -> Bool in
             return workout.date == date ? true : false

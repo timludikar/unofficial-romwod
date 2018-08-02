@@ -16,6 +16,7 @@ struct ScheduledWorkouts: Decodable {
     var isNew: Bool
     var quote: String
     var videoOrder: Int
+    var video: Video
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -25,5 +26,6 @@ struct ScheduledWorkouts: Decodable {
         case isNew = "is_new"
         case quote
         case videoOrder = "video_order"
+        case video
     }
 }

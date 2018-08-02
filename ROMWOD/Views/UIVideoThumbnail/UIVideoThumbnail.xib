@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIVideoThumbnail" customModule="ROMWOD" customModuleProvider="target">
             <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="WPf-JF-4C4"/>
                 <outlet property="date" destination="G6J-VE-oi7" id="sE6-ir-1nb"/>
                 <outlet property="desc" destination="uJH-lZ-cEe" id="nbu-u5-Ia8"/>
                 <outlet property="thumbnail" destination="lWa-hi-O2n" id="7DG-cE-zSt"/>
@@ -59,7 +60,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="-13.5" y="-650"/>
+            <point key="canvasLocation" x="-45" y="-644"/>
         </view>
     </objects>
 </document>

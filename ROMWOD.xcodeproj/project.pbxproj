@@ -28,6 +28,8 @@
 		9087B03520FCE1BA00179EFB /* ProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9087B03420FCE1BA00179EFB /* ProfileResponse.swift */; };
 		90B7AE312111316A00BA2905 /* UIVideoThumbnail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90B7AE302111316900BA2905 /* UIVideoThumbnail.xib */; };
 		90B7AE33211133F300BA2905 /* UIVideoThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B7AE32211133F300BA2905 /* UIVideoThumbnail.swift */; };
+		90B7AE37211243E700BA2905 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B7AE36211243E700BA2905 /* Video.swift */; };
+		90B7AE392112489B00BA2905 /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B7AE382112489B00BA2905 /* Thumbnail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		9087B03420FCE1BA00179EFB /* ProfileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileResponse.swift; sourceTree = "<group>"; };
 		90B7AE302111316900BA2905 /* UIVideoThumbnail.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIVideoThumbnail.xib; sourceTree = "<group>"; };
 		90B7AE32211133F300BA2905 /* UIVideoThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVideoThumbnail.swift; sourceTree = "<group>"; };
+		90B7AE36211243E700BA2905 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		90B7AE382112489B00BA2905 /* Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +133,8 @@
 				90259514210A06370056987E /* ScheduleResponse.swift */,
 				90259518210A18200056987E /* Response.swift */,
 				90259516210A180D0056987E /* ScheduledWorkout.swift */,
+				90B7AE36211243E700BA2905 /* Video.swift */,
+				90B7AE382112489B00BA2905 /* Thumbnail.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -355,6 +361,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90B7AE392112489B00BA2905 /* Thumbnail.swift in Sources */,
 				9025950D2108E55A0056987E /* SynchronousDataTask.swift in Sources */,
 				90259517210A180D0056987E /* ScheduledWorkout.swift in Sources */,
 				9087B03020F8D7B400179EFB /* LoginViewController.swift in Sources */,
@@ -368,6 +375,7 @@
 				9087AFFC20F4EAB000179EFB /* AppDelegate.swift in Sources */,
 				9025951F210BBDA30056987E /* HTTPClient.swift in Sources */,
 				9087B03320FCCD6F00179EFB /* User.swift in Sources */,
+				90B7AE37211243E700BA2905 /* Video.swift in Sources */,
 				9025950F2108FDE50056987E /* ScheduleRequest.swift in Sources */,
 				90045A932107A5BD00227D18 /* ListingViewController.swift in Sources */,
 			);

@@ -10,13 +10,24 @@ import UIKit
 
 @IBDesignable class UIVideoThumbnail: UIView {
     
-    @IBInspectable @IBOutlet weak var title: UILabel!
-    @IBInspectable @IBOutlet weak var date: UILabel!
-    @IBInspectable @IBOutlet weak var desc: UILabel!
-    @IBInspectable @IBOutlet weak var thumbnail: UIImageView!
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var desc: UILabel!
+    @IBOutlet weak var thumbnail: UIImageView!
     
+    @IBOutlet var contentView: UIView!
     let nibName = "UIVideoThumbnail"
-    var contentView : UIView!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        xibSetup()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        xibSetup()
+    }
+
     
     override open func awakeFromNib() {
         super.awakeFromNib()

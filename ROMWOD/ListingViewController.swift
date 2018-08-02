@@ -30,22 +30,23 @@ class ListingViewController: UIViewController {
         httpClient.getSchedule(from: req.url) { results in
             switch results {
             case let .success(returnedValue):
-                let workouts = returnedValue.response.first as? ScheduleResponse
                 
-                guard let today = workouts?.find(today: "2018-07-30T00:00:00.000Z").first else {
+                guard let workouts = returnedValue.response.first else {
                     return
                 }
-                
-                guard let target = self.view.subviews.first as? UIVideoThumbnail else {
-                    return
+
+                for (index, workout) in workouts.workouts.enumerated() {
+                    let nuView = UIVideoThumbnail(frame: CGRect(x: 0, y: (0 + (170 * index)), width: Int(self.view.frame.width), height: 168))
+                    
+                    nuView.title.text = workout.name
+                    nuView.date.text = workout.date
+                    nuView.desc.text = workout.description
+                    let dataURL = URL(string: workout.video.thumbnail.url)!
+                    let data = try? Data(contentsOf: dataURL)
+                    
+                    nuView.thumbnail.image = UIImage(data: data!)
+                    self.view.addSubview(nuView)
                 }
-                target.title.text = today.name
-                target.date.text = today.date
-                target.desc.text = today.description
-                let dataURL = URL(string: "https://embed-ssl.wistia.com/deliveries/b0d179daccb3d714e259514bd8f9b0726a176dd3.jpg")!
-                let data = try? Data(contentsOf: dataURL)
-                target.thumbnail.image = UIImage(data: data!)
-                print(today)
             case let .failure(errorValue):
                 print(errorValue)
             }
