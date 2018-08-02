@@ -18,9 +18,32 @@ extension Date {
     }
 }
 
+class MyCell: UICollectionViewCell {
+    @IBOutlet weak var videoThumbnail: UIVideoThumbnail!
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+    }
+    
+    func displayContent(title: String, date: String, description: String, thumbnail: Data){
+        videoThumbnail.title.text = title
+        videoThumbnail.date.text = date
+        videoThumbnail.desc.text = description
+        videoThumbnail.thumbnail.image = UIImage(data: thumbnail)
+    }
+}
+
 class ListingViewController: UIViewController {
+
+    @IBOutlet weak var collectionView: UICollectionView!
     
     let httpClient = HTTPClient()
+    var data = [ScheduleResponse]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,26 +53,31 @@ class ListingViewController: UIViewController {
         httpClient.getSchedule(from: req.url) { results in
             switch results {
             case let .success(returnedValue):
-                
-                guard let workouts = returnedValue.response.first else {
-                    return
-                }
-
-                for (index, workout) in workouts.workouts.enumerated() {
-                    let nuView = UIVideoThumbnail(frame: CGRect(x: 0, y: (0 + (170 * index)), width: Int(self.view.frame.width), height: 168))
-                    
-                    nuView.title.text = workout.name
-                    nuView.date.text = workout.date
-                    nuView.desc.text = workout.description
-                    let dataURL = URL(string: workout.video.thumbnail.url)!
-                    let data = try? Data(contentsOf: dataURL)
-                    
-                    nuView.thumbnail.image = UIImage(data: data!)
-                    self.view.addSubview(nuView)
-                }
+                self.data = returnedValue.response
+                self.collectionView.reloadData()
             case let .failure(errorValue):
                 print(errorValue)
             }
         }
+    }
+}
+
+extension ListingViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if ((self.data.first?.workouts) != nil) {
+            return (self.data.first?.workouts.count)!
+        }
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myCell", for: indexPath) as! MyCell
+
+        guard let workoutItem = self.data.first?.workouts[indexPath.row] else { return cell }
+        let dataURL = URL(string: workoutItem.video.thumbnail.url)!
+        let data = try? Data(contentsOf: dataURL)
+        
+        cell.displayContent(title: workoutItem.name, date: workoutItem.date, description: workoutItem.description, thumbnail: data!)
+        return cell
     }
 }
