@@ -8,16 +8,6 @@
 
 import UIKit
 
-extension Date {
-    func userDate() -> String {
-        let calendar = Calendar.current
-        let year = calendar.component(.year, from: self)
-        let month = calendar.component(.month, from: self)
-        let day = calendar.component(.day, from: self)
-        return "\(year)-\(month)-\(day)"
-    }
-}
-
 class MyCell: UICollectionViewCell {
     @IBOutlet weak var videoThumbnail: UIVideoThumbnail!
     override init(frame: CGRect) {
@@ -74,10 +64,10 @@ extension ListingViewController: UICollectionViewDataSource, UICollectionViewDel
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myCell", for: indexPath) as! MyCell
 
         guard let workoutItem = self.data.first?.workouts[indexPath.row] else { return cell }
-        let dataURL = URL(string: workoutItem.video.thumbnail.url)!
-        let data = try? Data(contentsOf: dataURL)
         
-        cell.displayContent(title: workoutItem.name, date: workoutItem.date, description: workoutItem.description, thumbnail: data!)
+        let data = try? Data(contentsOf: workoutItem.video.thumbnail.url)
+        
+        cell.displayContent(title: workoutItem.name, date: "\(workoutItem.date)", description: workoutItem.description, thumbnail: data!)
         return cell
     }
 }

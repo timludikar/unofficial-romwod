@@ -9,14 +9,14 @@
 import Foundation
 
 struct ScheduledWorkouts: Decodable {
-    var id: Int
-    var name: String
-    var description: String
-    var date: String
-    var isNew: Bool
-    var quote: String
-    var videoOrder: Int
-    var video: Video
+    let id: Int
+    let name: String
+    let description: String
+    let date: Date
+    let isNew: Bool
+    let quote: String
+    let videoOrder: Int
+    let video: Video
     
     enum CodingKeys: String, CodingKey {
         case id

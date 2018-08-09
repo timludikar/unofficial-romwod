@@ -9,18 +9,18 @@
 import Foundation
 
 struct Video: Decodable {
-    var id: Int
-    var externalId: String
-    var title: String
-    var description: String
-    var slug: String
-    var state: String
-//    var shortThumbnail: Thumbnail
-    var thumbnail: Thumbnail
-//    var duration: String
-    var createdAt: String
-    var updatedAt: String
-
+    let id: Int
+    let externalId: String
+    let title: String
+    let description: String
+    let slug: String
+    let state: String
+//    let shortThumbnail: Thumbnail
+    let thumbnail: Thumbnail
+//    let duration: String
+    let createdAt: Date
+    let updatedAt: Date
+    
     enum CodingKeys: String, CodingKey {
         case id
         case externalId = "external_id"
@@ -28,13 +28,12 @@ struct Video: Decodable {
         case description
         case slug
         case state
-//        case shortThumbnail = "short_thumbnail"
+        //        case shortThumbnail = "short_thumbnail"
         case thumbnail
-//        case duration = "duration_in_seconds"
+        //        case duration = "duration_in_seconds"
         case createdAt = "created_at"
         case updatedAt = "updated_at"
     }
-
 }
 
 

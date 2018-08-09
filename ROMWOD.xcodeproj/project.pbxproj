@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		90045A932107A5BD00227D18 /* ListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90045A922107A5BD00227D18 /* ListingViewController.swift */; };
 		90045A9F2107B34000227D18 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90045A9E2107B34000227D18 /* Router.swift */; };
+		901A9E3E211A3418003E1EB3 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A9E3C211A3418003E1EB3 /* Date.swift */; };
+		901A9E3F211A3418003E1EB3 /* DateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A9E3D211A3418003E1EB3 /* DateWrapper.swift */; };
+		901A9E43211B1DA1003E1EB3 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A9E42211B1DA1003E1EB3 /* Regex.swift */; };
+		901A9E45211B6769003E1EB3 /* RegexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A9E44211B6769003E1EB3 /* RegexTests.swift */; };
+		901A9E7B211B6A96003E1EB3 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A9E42211B1DA1003E1EB3 /* Regex.swift */; };
 		9025950D2108E55A0056987E /* SynchronousDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9025950C2108E55A0056987E /* SynchronousDataTask.swift */; };
 		9025950F2108FDE50056987E /* ScheduleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9025950E2108FDE50056987E /* ScheduleRequest.swift */; };
 		902595112109009D0056987E /* URLContants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902595102109009D0056987E /* URLContants.swift */; };
@@ -52,6 +57,10 @@
 /* Begin PBXFileReference section */
 		90045A922107A5BD00227D18 /* ListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingViewController.swift; sourceTree = "<group>"; };
 		90045A9E2107B34000227D18 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		901A9E3C211A3418003E1EB3 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		901A9E3D211A3418003E1EB3 /* DateWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateWrapper.swift; sourceTree = "<group>"; };
+		901A9E42211B1DA1003E1EB3 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
+		901A9E44211B6769003E1EB3 /* RegexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexTests.swift; sourceTree = "<group>"; };
 		9025950C2108E55A0056987E /* SynchronousDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronousDataTask.swift; sourceTree = "<group>"; };
 		9025950E2108FDE50056987E /* ScheduleRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleRequest.swift; sourceTree = "<group>"; };
 		902595102109009D0056987E /* URLContants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLContants.swift; sourceTree = "<group>"; };
@@ -116,6 +125,16 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		901A9E3B211A3418003E1EB3 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				901A9E3C211A3418003E1EB3 /* Date.swift */,
+				901A9E3D211A3418003E1EB3 /* DateWrapper.swift */,
+				901A9E42211B1DA1003E1EB3 /* Regex.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		902595122109018E0056987E /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +181,7 @@
 		9087AFFA20F4EAB000179EFB /* ROMWOD */ = {
 			isa = PBXGroup;
 			children = (
+				901A9E3B211A3418003E1EB3 /* Utilities */,
 				90045A922107A5BD00227D18 /* ListingViewController.swift */,
 				90B7AE34211227A700BA2905 /* Views */,
 				9087B02F20F8D7B400179EFB /* LoginViewController.swift */,
@@ -178,6 +198,7 @@
 		9087B01120F4EAB200179EFB /* ROMWODTests */ = {
 			isa = PBXGroup;
 			children = (
+				901A9E44211B6769003E1EB3 /* RegexTests.swift */,
 				9087B01220F4EAB200179EFB /* ROMWODTests.swift */,
 				9087B01420F4EAB200179EFB /* Info.plist */,
 			);
@@ -300,11 +321,9 @@
 					};
 					9087B00D20F4EAB200179EFB = {
 						CreatedOnToolsVersion = 9.4.1;
-						TestTargetID = 9087AFF720F4EAB000179EFB;
 					};
 					9087B01820F4EAB200179EFB = {
 						CreatedOnToolsVersion = 9.4.1;
-						TestTargetID = 9087AFF720F4EAB000179EFB;
 					};
 				};
 			};
@@ -362,16 +381,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				90B7AE392112489B00BA2905 /* Thumbnail.swift in Sources */,
+				901A9E43211B1DA1003E1EB3 /* Regex.swift in Sources */,
 				9025950D2108E55A0056987E /* SynchronousDataTask.swift in Sources */,
 				90259517210A180D0056987E /* ScheduledWorkout.swift in Sources */,
 				9087B03020F8D7B400179EFB /* LoginViewController.swift in Sources */,
 				90045A9F2107B34000227D18 /* Router.swift in Sources */,
 				9025951B210B714A0056987E /* LoginRequest.swift in Sources */,
 				90259515210A06370056987E /* ScheduleResponse.swift in Sources */,
+				901A9E3E211A3418003E1EB3 /* Date.swift in Sources */,
 				90259519210A18200056987E /* Response.swift in Sources */,
 				902595112109009D0056987E /* URLContants.swift in Sources */,
 				9087B03520FCE1BA00179EFB /* ProfileResponse.swift in Sources */,
 				90B7AE33211133F300BA2905 /* UIVideoThumbnail.swift in Sources */,
+				901A9E3F211A3418003E1EB3 /* DateWrapper.swift in Sources */,
 				9087AFFC20F4EAB000179EFB /* AppDelegate.swift in Sources */,
 				9025951F210BBDA30056987E /* HTTPClient.swift in Sources */,
 				9087B03320FCCD6F00179EFB /* User.swift in Sources */,
@@ -386,6 +408,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9087B01320F4EAB200179EFB /* ROMWODTests.swift in Sources */,
+				901A9E45211B6769003E1EB3 /* RegexTests.swift in Sources */,
+				901A9E7B211B6A96003E1EB3 /* Regex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,7 +610,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8W9ZD53UBT;
 				INFOPLIST_FILE = ROMWODTests/Info.plist;
@@ -599,7 +622,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ROMWOD.app/ROMWOD";
 			};
 			name = Debug;
 		};
@@ -607,7 +629,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8W9ZD53UBT;
 				INFOPLIST_FILE = ROMWODTests/Info.plist;
@@ -620,7 +641,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ROMWOD.app/ROMWOD";
 			};
 			name = Release;
 		};
@@ -638,9 +658,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = tim.ludikar.ROMWODUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ROMWOD;
 			};
 			name = Debug;
 		};
@@ -658,9 +678,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = tim.ludikar.ROMWODUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ROMWOD;
 			};
 			name = Release;
 		};

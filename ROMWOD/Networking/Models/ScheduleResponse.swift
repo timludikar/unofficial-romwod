@@ -10,13 +10,13 @@ import Foundation
 
 struct ScheduleResponse: Decodable {
     
-    var id: Int
-    var title: String
-    var startDate: String
-    var endDate: String
-    var slug: String
-    var state: String
-    var workouts: [ScheduledWorkouts]
+    let id: Int
+    let title: String
+    let startDate: Date
+    let endDate: Date
+    let slug: String
+    let state: String
+    let workouts: [ScheduledWorkouts]
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -28,10 +28,9 @@ struct ScheduleResponse: Decodable {
         case workouts = "scheduled_workouts"
     }
     
-    
-    func find(today date: String) -> [ScheduledWorkouts] {
+    func find(today date: Date) -> [ScheduledWorkouts] {
         return workouts.filter({ (workout) -> Bool in
-            return workout.date == date ? true : false
+            return workout.date < date ? true : false
         })
     }
 }

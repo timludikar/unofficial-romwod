@@ -9,10 +9,10 @@
 import Foundation
 
 struct Thumbnail: Decodable {
-    var height: String
-    var scalingParameter: String
-    var url: String
-    var width: String
+    let height: String
+    let width: String
+    let scalingParameter: String
+    let url: URL
     
     enum CodingKeys: String, CodingKey {
         case height

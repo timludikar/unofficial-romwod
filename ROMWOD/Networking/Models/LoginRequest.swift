@@ -40,7 +40,3 @@ struct LoginRequest: Request {
         try container.encode(rememberMe, forKey: .rememberMe)
     }
 }
-
-//extension LoginRequest: Encodable {
-//
-//}

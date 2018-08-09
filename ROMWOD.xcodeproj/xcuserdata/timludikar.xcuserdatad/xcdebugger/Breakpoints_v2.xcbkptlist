@@ -32,79 +32,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ROMWOD/ListingViewController.swift"
-            timestampString = "554920874.82734"
+            filePath = "ROMWODTests/DateFormatterTests.swift"
+            timestampString = "555515218.8260289"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "ListingViewController"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "variable initialization expression of ROMWOD.ListingViewController.httpClient : ROMWOD.HTTPClient"
-                  moduleName = "ROMWOD"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/timludikar/Projects/romwod/ROMWOD/ROMWOD/ListingViewController.swift"
-                  timestampString = "554915635.077961"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "4">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ROMWOD.ListingViewController.httpClient.getter : ROMWOD.HTTPClient"
-                  moduleName = "ROMWOD"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/timludikar/Projects/romwod/ROMWOD/ROMWOD/ListingViewController.swift"
-                  timestampString = "554915635.080124"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "109">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ROMWOD.ListingViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; ROMWOD.ListingViewController"
-                  moduleName = "ROMWOD"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/timludikar/Projects/romwod/ROMWOD/ROMWOD/ListingViewController.swift"
-                  timestampString = "554915635.082773"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "219">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ROMWOD.ListingViewController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;ROMWOD.ListingViewController&gt;"
-                  moduleName = "ROMWOD"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/timludikar/Projects/romwod/ROMWOD/ROMWOD/ListingViewController.swift"
-                  timestampString = "554915635.085511"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "156">
-               </Location>
-            </Locations>
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "testExample()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

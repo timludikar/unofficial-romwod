@@ -37,16 +37,11 @@
                BlueprintName = "ROMWODTests"
                ReferencedContainer = "container:ROMWOD.xcodeproj">
             </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9087B01820F4EAB200179EFB"
-               BuildableName = "ROMWODUITests.xctest"
-               BlueprintName = "ROMWODUITests"
-               ReferencedContainer = "container:ROMWOD.xcodeproj">
-            </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "DateTests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>
