@@ -32,7 +32,9 @@ import UIKit
     override open func awakeFromNib() {
         super.awakeFromNib()
         xibSetup()
+        
     }
+    
     
     func xibSetup() {
         guard let view = loadViewFromNib() else { return }
@@ -41,6 +43,17 @@ import UIKit
             [.flexibleWidth, .flexibleHeight]
         addSubview(view)
         contentView = view
+    }
+    
+    func setImage(to image: Data){
+        self.thumbnail.image = UIImage(data: image)
+    }
+    
+    func setDate(to date: Date){
+        let dateFormat = DateFormatter()
+        dateFormat.dateFormat = "EEEE, MMMM d, YYYY"
+        let displayFormat = dateFormat.string(from: date)
+        self.date.text = "\(displayFormat)"
     }
     
     func loadViewFromNib() -> UIView? {
