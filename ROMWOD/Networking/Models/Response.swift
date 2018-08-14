@@ -13,20 +13,9 @@ enum Result<T, U> where U: Error {
     case failure(U)
 }
 
-enum RequestError: Error {
-    case requestFailed
-    case jsonParseError
-    case authenicationError
-    case unknownError
-}
-
 enum ResponseType {
     case valid
     case invalid(error: RequestError)
-}
-
-protocol Request: Encodable {
-    var url: URLRequest { get }
 }
 
 struct ResponseData: Decodable {
@@ -35,5 +24,4 @@ struct ResponseData: Decodable {
     enum CodingKeys: String, CodingKey {
         case response = "data"
     }
-    
 }

@@ -8,56 +8,18 @@
 
 import UIKit
 
-class VideoThumbnail: UICollectionViewCell {
-    @IBOutlet weak var videoThumbnail: UIVideoThumbnail!
-//    lazy var width: NSLayoutConstraint = {
-//        let width = contentView.widthAnchor.constraint(equalToConstant: bounds.size.width)
-//        width.isActive = true
-//        return width
-//    }()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-//        contentView.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-//    override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
-//        width.constant = bounds.size.width
-//        return contentView.systemLayoutSizeFitting(CGSize(width: targetSize.width, height: 1))
-//    }
-    
-    func displayContent(title: String, date: Date, description: String, thumbnail: Data){
-        videoThumbnail.title.text = title
-        videoThumbnail.setDate(to: date)
-        videoThumbnail.desc.text = description
-        videoThumbnail.setImage(to: thumbnail)
-    }
-}
-
 class ListingViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     let httpClient = HTTPClient()
+//    var videoList: VideoList
     var data = [ScheduleResponse]()
-    
-//    var layout: UICollectionViewFlowLayout = {
-//        let layout = UICollectionViewFlowLayout()
-//        let width = UIScreen.main.bounds.size.width
-//        layout.estimatedItemSize = CGSize(width: width, height: 10)
-//        return layout
-//    }()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.fetchSchedule()
-        
-//        collectionView?.register(VideoThumbnail.self, forCellWithReuseIdentifier: "videoThumbnail")
-//        collectionView.collectionViewLayout = layout
     }
     
     private func fetchSchedule(){
@@ -67,6 +29,7 @@ class ListingViewController: UIViewController {
             switch results {
             case let .success(returnedValue):
                 self.data = returnedValue.response
+//                self.videoList = returnedValue.response
                 self.reloadCollectionView()
             case let .failure(errorValue):
                 print(errorValue)

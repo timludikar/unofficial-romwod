@@ -14,6 +14,9 @@
 		901A9E43211B1DA1003E1EB3 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A9E42211B1DA1003E1EB3 /* Regex.swift */; };
 		901A9E45211B6769003E1EB3 /* RegexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A9E44211B6769003E1EB3 /* RegexTests.swift */; };
 		901A9E7B211B6A96003E1EB3 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A9E42211B1DA1003E1EB3 /* Regex.swift */; };
+		901A9E8F2122156E003E1EB3 /* VideoThumbnailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A9E8E2122156E003E1EB3 /* VideoThumbnailCell.swift */; };
+		901A9E93212317D4003E1EB3 /* VideoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A9E92212317D4003E1EB3 /* VideoList.swift */; };
+		901A9E95212319CF003E1EB3 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A9E94212319CF003E1EB3 /* Request.swift */; };
 		9025950D2108E55A0056987E /* SynchronousDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9025950C2108E55A0056987E /* SynchronousDataTask.swift */; };
 		9025950F2108FDE50056987E /* ScheduleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9025950E2108FDE50056987E /* ScheduleRequest.swift */; };
 		902595112109009D0056987E /* URLContants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902595102109009D0056987E /* URLContants.swift */; };
@@ -61,6 +64,9 @@
 		901A9E3D211A3418003E1EB3 /* DateWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateWrapper.swift; sourceTree = "<group>"; };
 		901A9E42211B1DA1003E1EB3 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		901A9E44211B6769003E1EB3 /* RegexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexTests.swift; sourceTree = "<group>"; };
+		901A9E8E2122156E003E1EB3 /* VideoThumbnailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoThumbnailCell.swift; sourceTree = "<group>"; };
+		901A9E92212317D4003E1EB3 /* VideoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoList.swift; sourceTree = "<group>"; };
+		901A9E94212319CF003E1EB3 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		9025950C2108E55A0056987E /* SynchronousDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronousDataTask.swift; sourceTree = "<group>"; };
 		9025950E2108FDE50056987E /* ScheduleRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleRequest.swift; sourceTree = "<group>"; };
 		902595102109009D0056987E /* URLContants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLContants.swift; sourceTree = "<group>"; };
@@ -135,6 +141,25 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		901A9E9021230A31003E1EB3 /* ListingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				90045A922107A5BD00227D18 /* ListingViewController.swift */,
+				901A9E8E2122156E003E1EB3 /* VideoThumbnailCell.swift */,
+				901A9E92212317D4003E1EB3 /* VideoList.swift */,
+			);
+			path = ListingViewController;
+			sourceTree = "<group>";
+		};
+		901A9E9121230A9C003E1EB3 /* LoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9087B03220FCCD6E00179EFB /* User.swift */,
+				9087B02F20F8D7B400179EFB /* LoginViewController.swift */,
+			);
+			path = LoginViewController;
+			sourceTree = "<group>";
+		};
 		902595122109018E0056987E /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +179,7 @@
 				90259516210A180D0056987E /* ScheduledWorkout.swift */,
 				90B7AE36211243E700BA2905 /* Video.swift */,
 				90B7AE382112489B00BA2905 /* Thumbnail.swift */,
+				901A9E94212319CF003E1EB3 /* Request.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -181,11 +207,10 @@
 		9087AFFA20F4EAB000179EFB /* ROMWOD */ = {
 			isa = PBXGroup;
 			children = (
+				901A9E9121230A9C003E1EB3 /* LoginViewController */,
+				901A9E9021230A31003E1EB3 /* ListingViewController */,
 				901A9E3B211A3418003E1EB3 /* Utilities */,
-				90045A922107A5BD00227D18 /* ListingViewController.swift */,
 				90B7AE34211227A700BA2905 /* Views */,
-				9087B02F20F8D7B400179EFB /* LoginViewController.swift */,
-				9087B03220FCCD6E00179EFB /* User.swift */,
 				9087B03120FCCCC300179EFB /* Supporting Files */,
 				9087B00120F4EAB000179EFB /* Main.storyboard */,
 				9087B00920F4EAB200179EFB /* Info.plist */,
@@ -384,10 +409,13 @@
 				901A9E43211B1DA1003E1EB3 /* Regex.swift in Sources */,
 				9025950D2108E55A0056987E /* SynchronousDataTask.swift in Sources */,
 				90259517210A180D0056987E /* ScheduledWorkout.swift in Sources */,
+				901A9E8F2122156E003E1EB3 /* VideoThumbnailCell.swift in Sources */,
 				9087B03020F8D7B400179EFB /* LoginViewController.swift in Sources */,
 				90045A9F2107B34000227D18 /* Router.swift in Sources */,
 				9025951B210B714A0056987E /* LoginRequest.swift in Sources */,
+				901A9E95212319CF003E1EB3 /* Request.swift in Sources */,
 				90259515210A06370056987E /* ScheduleResponse.swift in Sources */,
+				901A9E93212317D4003E1EB3 /* VideoList.swift in Sources */,
 				901A9E3E211A3418003E1EB3 /* Date.swift in Sources */,
 				90259519210A18200056987E /* Response.swift in Sources */,
 				902595112109009D0056987E /* URLContants.swift in Sources */,

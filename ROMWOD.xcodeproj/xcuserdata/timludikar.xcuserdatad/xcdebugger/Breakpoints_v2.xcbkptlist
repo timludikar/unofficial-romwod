@@ -51,13 +51,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ROMWOD/ListingViewController.swift"
-            timestampString = "555871084.654236"
+            filePath = "ROMWOD/Views/UIVideoThumbnail/UIVideoThumbnail.swift"
+            timestampString = "555948160.633557"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "fetchSchedule()"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "tapOn(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
