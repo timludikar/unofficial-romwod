@@ -1,4 +1,4 @@
-app_identifier("tim.ludikar.ROMWODUITests") # The bundle identifier of your app
+app_identifier("timludikar.ROMWOD") # The bundle identifier of your app
 apple_id("tludikar@gmail.com") # Your Apple email address
 
 itc_team_id("119229161") # App Store Connect Team ID
