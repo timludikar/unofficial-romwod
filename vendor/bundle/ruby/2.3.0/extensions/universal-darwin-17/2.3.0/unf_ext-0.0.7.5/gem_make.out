@@ -1,5 +1,5 @@
 current directory: /Users/timludikar/Projects/romwod/ROMWOD/vendor/bundle/ruby/2.3.0/gems/unf_ext-0.0.7.5/ext/unf_ext
-/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/bin/ruby -r ./siteconf20180816-81262-l245vv.rb extconf.rb
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/bin/ruby -r ./siteconf20180817-95387-yv5uaf.rb extconf.rb
 checking for main() in -lstdc++... yes
 creating Makefile
 
@@ -21,4 +21,4 @@ ld: warning: directory not found for option '-L/BuildRoot/Applications/Xcode.app
 
 current directory: /Users/timludikar/Projects/romwod/ROMWOD/vendor/bundle/ruby/2.3.0/gems/unf_ext-0.0.7.5/ext/unf_ext
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 unf_ext.bundle ./.gem.20180816-81262-r31d25
+/usr/bin/install -c -m 0755 unf_ext.bundle ./.gem.20180817-95387-d290xx

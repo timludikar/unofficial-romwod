@@ -16,10 +16,15 @@
 default_platform(:ios)
 
 platform :ios do
+  desc "Run application unit tests"
+  lane :tests do
+    run_tests(scheme: "ROMWOD", devices: ["iPhone 8"])
+  end
+
   desc "Push a new beta build to TestFlight"
   lane :beta do
     increment_build_number(xcodeproj: "ROMWOD.xcodeproj")
-    build_app(scheme: "ROMWOD")
+    build_app(scheme: "ROMWODUISnapShots")
     upload_to_testflight
   end
 end

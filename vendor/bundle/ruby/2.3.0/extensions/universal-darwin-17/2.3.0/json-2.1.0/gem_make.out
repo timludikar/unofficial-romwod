@@ -1,5 +1,5 @@
 current directory: /Users/timludikar/Projects/romwod/ROMWOD/vendor/bundle/ruby/2.3.0/gems/json-2.1.0/ext/json
-/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/bin/ruby -r ./siteconf20180816-81262-1bxzlif.rb extconf.rb
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/bin/ruby -r ./siteconf20180817-95387-1odwfvf.rb extconf.rb
 creating Makefile
 
 current directory: /Users/timludikar/Projects/romwod/ROMWOD/vendor/bundle/ruby/2.3.0/gems/json-2.1.0/ext/json

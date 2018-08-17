@@ -38,6 +38,8 @@
 		90B7AE33211133F300BA2905 /* UIVideoThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B7AE32211133F300BA2905 /* UIVideoThumbnail.swift */; };
 		90B7AE37211243E700BA2905 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B7AE36211243E700BA2905 /* Video.swift */; };
 		90B7AE392112489B00BA2905 /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B7AE382112489B00BA2905 /* Thumbnail.swift */; };
+		90D9BD0821272F7100172D88 /* ROMWODUISnapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D9BD0721272F7100172D88 /* ROMWODUISnapshots.swift */; };
+		90D9BD0F21272FA700172D88 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D9BCFF2127148000172D88 /* SnapshotHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,13 @@
 			remoteInfo = ROMWOD;
 		};
 		9087B01A20F4EAB200179EFB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9087AFF020F4EAB000179EFB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9087AFF720F4EAB000179EFB;
+			remoteInfo = ROMWOD;
+		};
+		90D9BD0A21272F7100172D88 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9087AFF020F4EAB000179EFB /* Project object */;
 			proxyType = 1;
@@ -94,6 +103,10 @@
 		90B7AE32211133F300BA2905 /* UIVideoThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVideoThumbnail.swift; sourceTree = "<group>"; };
 		90B7AE36211243E700BA2905 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		90B7AE382112489B00BA2905 /* Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
+		90D9BCFF2127148000172D88 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
+		90D9BD0521272F7100172D88 /* ROMWODUISnapshots.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ROMWODUISnapshots.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		90D9BD0721272F7100172D88 /* ROMWODUISnapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROMWODUISnapshots.swift; sourceTree = "<group>"; };
+		90D9BD0921272F7100172D88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +125,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		9087B01620F4EAB200179EFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90D9BD0221272F7100172D88 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -190,6 +210,7 @@
 				9087AFFA20F4EAB000179EFB /* ROMWOD */,
 				9087B01120F4EAB200179EFB /* ROMWODTests */,
 				9087B01C20F4EAB200179EFB /* ROMWODUITests */,
+				90D9BD0621272F7100172D88 /* ROMWODUISnapshots */,
 				9087AFF920F4EAB000179EFB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -200,6 +221,7 @@
 				9087AFF820F4EAB000179EFB /* ROMWOD.app */,
 				9087B00E20F4EAB200179EFB /* ROMWODTests.xctest */,
 				9087B01920F4EAB200179EFB /* ROMWODUITests.xctest */,
+				90D9BD0521272F7100172D88 /* ROMWODUISnapshots.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -264,6 +286,16 @@
 				90B7AE32211133F300BA2905 /* UIVideoThumbnail.swift */,
 			);
 			path = UIVideoThumbnail;
+			sourceTree = "<group>";
+		};
+		90D9BD0621272F7100172D88 /* ROMWODUISnapshots */ = {
+			isa = PBXGroup;
+			children = (
+				90D9BCFF2127148000172D88 /* SnapshotHelper.swift */,
+				90D9BD0721272F7100172D88 /* ROMWODUISnapshots.swift */,
+				90D9BD0921272F7100172D88 /* Info.plist */,
+			);
+			path = ROMWODUISnapshots;
 			sourceTree = "<group>";
 		};
 		90F04BA22110AC45005660EF /* Utilites */ = {
@@ -331,6 +363,24 @@
 			productReference = 9087B01920F4EAB200179EFB /* ROMWODUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		90D9BD0421272F7100172D88 /* ROMWODUISnapshots */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 90D9BD0C21272F7100172D88 /* Build configuration list for PBXNativeTarget "ROMWODUISnapshots" */;
+			buildPhases = (
+				90D9BD0121272F7100172D88 /* Sources */,
+				90D9BD0221272F7100172D88 /* Frameworks */,
+				90D9BD0321272F7100172D88 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				90D9BD0B21272F7100172D88 /* PBXTargetDependency */,
+			);
+			name = ROMWODUISnapshots;
+			productName = ROMWODUISnapshots;
+			productReference = 90D9BD0521272F7100172D88 /* ROMWODUISnapshots.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -355,6 +405,10 @@
 					9087B01820F4EAB200179EFB = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
+					90D9BD0421272F7100172D88 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 9087AFF720F4EAB000179EFB;
+					};
 				};
 			};
 			buildConfigurationList = 9087AFF320F4EAB000179EFB /* Build configuration list for PBXProject "ROMWOD" */;
@@ -373,6 +427,7 @@
 				9087AFF720F4EAB000179EFB /* ROMWOD */,
 				9087B00D20F4EAB200179EFB /* ROMWODTests */,
 				9087B01820F4EAB200179EFB /* ROMWODUITests */,
+				90D9BD0421272F7100172D88 /* ROMWODUISnapshots */,
 			);
 		};
 /* End PBXProject section */
@@ -397,6 +452,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		9087B01720F4EAB200179EFB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90D9BD0321272F7100172D88 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -454,6 +516,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		90D9BD0121272F7100172D88 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90D9BD0821272F7100172D88 /* ROMWODUISnapshots.swift in Sources */,
+				90D9BD0F21272FA700172D88 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -466,6 +537,11 @@
 			isa = PBXTargetDependency;
 			target = 9087AFF720F4EAB000179EFB /* ROMWOD */;
 			targetProxy = 9087B01A20F4EAB200179EFB /* PBXContainerItemProxy */;
+		};
+		90D9BD0B21272F7100172D88 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9087AFF720F4EAB000179EFB /* ROMWOD */;
+			targetProxy = 90D9BD0A21272F7100172D88 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -721,6 +797,44 @@
 			};
 			name = Release;
 		};
+		90D9BD0D21272F7100172D88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HHDC27Y75K;
+				INFOPLIST_FILE = ROMWODUISnapshots/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = tim.ludikar.ROMWODUISnapshots;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ROMWOD;
+			};
+			name = Debug;
+		};
+		90D9BD0E21272F7100172D88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HHDC27Y75K;
+				INFOPLIST_FILE = ROMWODUISnapshots/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = tim.ludikar.ROMWODUISnapshots;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ROMWOD;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -756,6 +870,15 @@
 			buildConfigurations = (
 				9087B02920F4EAB200179EFB /* Debug */,
 				9087B02A20F4EAB200179EFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		90D9BD0C21272F7100172D88 /* Build configuration list for PBXNativeTarget "ROMWODUISnapshots" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90D9BD0D21272F7100172D88 /* Debug */,
+				90D9BD0E21272F7100172D88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

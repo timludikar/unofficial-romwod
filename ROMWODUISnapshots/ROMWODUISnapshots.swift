@@ -1,15 +1,14 @@
 //
-//  ROMWODUITests.swift
-//  ROMWODUITests
+//  ROMWODUISnapshots.swift
+//  ROMWODUISnapshots
 //
-//  Created by Tim Ludikar on 2018-07-10.
+//  Created by Tim Ludikar on 2018-08-17.
 //  Copyright © 2018 Tim Ludikar. All rights reserved.
 //
 
 import XCTest
 
-class ROMWODUITests: XCTestCase {
-    var app: XCUIApplication!
+class ROMWODUISnapshots: XCTestCase {
         
     override func setUp() {
         super.setUp()
@@ -19,11 +18,9 @@ class ROMWODUITests: XCTestCase {
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-//                let app = XCUIApplication()
-        app = XCUIApplication()
-        setupSnapshot(app)
-//        app.launchArguments.append("--uitesting")
 
+        let app = XCUIApplication()
+        setupSnapshot(app)
         app.launch()
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
@@ -35,7 +32,7 @@ class ROMWODUITests: XCTestCase {
     }
     
     func testExample() {
-        snapshot("01IndexScreen")
+        snapshot("0Launch")
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
