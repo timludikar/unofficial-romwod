@@ -15,8 +15,6 @@
 
 default_platform(:ios)
 
-setup_travis
-
 platform :ios do
   lane :screenshots do 
     capture_screenshots
@@ -27,14 +25,29 @@ platform :ios do
     run_tests(scheme: "ROMWOD", devices: ["iPhone 8"])
   end
 
-  desc "Build Application"
-  lane :build do
-    match(type: "appstore")
-    sync_code_signing(type: "appstore")
-    build_app(
-      scheme: "ROMWOD",
-      export_method: "app-store"
+  lane :keychain do 
+    create_keychain(
+      name: "ROMWOD_KEYCHAIN",
+      password: "password",
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600,
+      add_to_search_list: true
     )
+  end
+
+  desc "Build Application"
+  lane :build do |options|
+    setup_travis
+    scheme = "ROMWOD"
+    if options[:scheme]
+      scheme = options.scheme
+    end
+    configuration = options[:configuration]
+    export_method = options[:export_method]
+    disable_automatic_code_signing(path: "ROMWOD.xcodeproj")
+    gym(scheme: scheme, configuration: configuration, export_method: export_method, output_name: "ROMWOD.ipa") 
+    enable_automatic_code_signing(path: "ROMWOD.xcodeproj")
   end
 
   desc "Push a new beta build to TestFlight"
