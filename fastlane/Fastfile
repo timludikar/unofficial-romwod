@@ -27,6 +27,22 @@ platform :ios do
     run_tests(scheme: "ROMWOD", devices: ["iPhone 8"])
   end
 
+  desc "Build Application"
+  lane :build do
+    match(type: "appstore")
+    sync_code_signing(type: "appstore")
+    build_app(
+      scheme: "ROMWOD",
+      export_method: "app-store",
+      export_xcargs: "-allowProvisioningUpdates",
+      export_options: {
+        provisioningProfiles: {
+          "timludikar.ROMWOD" => "match AppStore timludikar.ROMWOD"
+        }
+      }
+    )
+  end
+
   desc "Push a new beta build to TestFlight"
   lane :beta do
     match(type: "appstore")
