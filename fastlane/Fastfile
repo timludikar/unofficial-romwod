@@ -13,7 +13,9 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
+setup_travis
 default_platform(:ios)
+xcversion(version: "9.4")
 
 platform :ios do
   lane :screenshots do 
@@ -38,7 +40,6 @@ platform :ios do
 
   desc "Build Application"
   lane :build do |options|
-    setup_travis
     scheme = "ROMWOD"
     if options[:scheme]
       scheme = options.scheme
