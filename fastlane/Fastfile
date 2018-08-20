@@ -34,6 +34,7 @@ platform :ios do
     tests
     capture_screenshots
     increment_build_number(xcodeproj: "ROMWOD.xcodeproj")
+    
     build_app(
       scheme: "ROMWOD",
       export_method: "app-store",
@@ -43,6 +44,7 @@ platform :ios do
         }
       }
     )
+    enable_automatic_code_signing(path: "ROMWOD.xcodeproj")
     upload_to_testflight
   end
 end
