@@ -1,5 +1,7 @@
 language: swift
 osx_image: xcode9.4
+before_install:
+  - echo -e "machine github.com\n login $CI_USER_TOKEN" > ~/.netrc
 install:
   - bundle install
 script:
