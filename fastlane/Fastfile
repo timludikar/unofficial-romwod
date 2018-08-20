@@ -33,13 +33,7 @@ platform :ios do
     sync_code_signing(type: "appstore")
     build_app(
       scheme: "ROMWOD",
-      export_method: "app-store",
-      export_xcargs: "-allowProvisioningUpdates",
-      export_options: {
-        provisioningProfiles: {
-          "timludikar.ROMWOD" => "match AppStore timludikar.ROMWOD"
-        }
-      }
+      export_method: "app-store"
     )
   end
 
