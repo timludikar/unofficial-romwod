@@ -15,7 +15,6 @@
 
 setup_travis
 default_platform(:ios)
-xcversion(version: "9.4")
 
 platform :ios do
   lane :screenshots do 
