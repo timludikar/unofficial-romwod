@@ -46,7 +46,7 @@ platform :ios do
     ENV["MATCH_KEYCHAIN_PASSWORD"] = password
     keychain(name: keychain_name, password: password)
     scheme = "ROMWOD"
-    match(type: "development", keychain_name: keychain_name, keychain_password: password)
+    #match(type: "development", keychain_name: keychain_name, keychain_password: password)
     match(type: "appstore", keychain_name: keychain_name, keychain_password: password, readonly: true)
 
     if options[:scheme]
