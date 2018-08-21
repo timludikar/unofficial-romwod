@@ -72,11 +72,9 @@ platform :ios do
   desc "Push a new beta build to TestFlight"
   lane :beta do
     match(type: "appstore")
-    #sync_code_signing(type: "appstore")
-    #tests
-    #capture_screenshots
+    tests
+    capture_screenshots
     increment_build_number(xcodeproj: "ROMWOD.xcodeproj")
     build
-    pilot
   end
 end
