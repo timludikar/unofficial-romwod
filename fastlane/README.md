@@ -26,6 +26,11 @@ fastlane ios screenshots
 fastlane ios tests
 ```
 Run application unit tests
+### ios keychain
+```
+fastlane ios keychain
+```
+
 ### ios build
 ```
 fastlane ios build

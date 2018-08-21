@@ -396,6 +396,7 @@
 				TargetAttributes = {
 					9087AFF720F4EAB000179EFB = {
 						CreatedOnToolsVersion = 9.4.1;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
@@ -404,12 +405,15 @@
 					};
 					9087B00D20F4EAB200179EFB = {
 						CreatedOnToolsVersion = 9.4.1;
+						ProvisioningStyle = Manual;
 					};
 					9087B01820F4EAB200179EFB = {
 						CreatedOnToolsVersion = 9.4.1;
+						ProvisioningStyle = Manual;
 					};
 					90D9BD132127364200172D88 = {
 						CreatedOnToolsVersion = 9.4.1;
+						ProvisioningStyle = Manual;
 						TestTargetID = 9087AFF720F4EAB000179EFB;
 					};
 				};
@@ -732,7 +736,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 8W9ZD53UBT;
 				INFOPLIST_FILE = ROMWODTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -751,7 +755,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 8W9ZD53UBT;
 				INFOPLIST_FILE = ROMWODTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -770,7 +774,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 8W9ZD53UBT;
 				INFOPLIST_FILE = ROMWODUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -790,7 +794,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 8W9ZD53UBT;
 				INFOPLIST_FILE = ROMWODUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -809,7 +813,7 @@
 		90D9BD1C2127364200172D88 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = HHDC27Y75K;
 				INFOPLIST_FILE = ROMWODUISnapshots/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -829,7 +833,7 @@
 		90D9BD1D2127364200172D88 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = HHDC27Y75K;
 				INFOPLIST_FILE = ROMWODUISnapshots/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
