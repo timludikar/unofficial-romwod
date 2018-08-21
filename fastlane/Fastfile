@@ -44,12 +44,17 @@ platform :ios do
     keychain_name = "fastlane"
 
     ENV["MATCH_KEYCHAIN_NAME"] = keychain_name
-
     ENV["MATCH_KEYCHAIN_PASSWORD"] = password
+
     keychain(name: keychain_name, password: password)
     scheme = "ROMWOD"
 
-    match(type: "appstore", keychain_name: keychain_name, keychain_password: password, readonly: true)
+    match(
+      type: "appstore",
+      keychain_name: keychain_name,
+      keychain_password: password,
+      readonly: true
+    )
     
     if options[:scheme]
       scheme = options.scheme
@@ -57,7 +62,7 @@ platform :ios do
 
     configuration = options[:configuration]
     export_method = options[:export_method]
-    
+
     build_app(
       scheme: "ROMWOD",
       clean: true
@@ -67,10 +72,11 @@ platform :ios do
   desc "Push a new beta build to TestFlight"
   lane :beta do
     match(type: "appstore")
-    tests
-    capture_screenshots
+    #sync_code_signing(type: "appstore")
+    #tests
+    #capture_screenshots
     increment_build_number(xcodeproj: "ROMWOD.xcodeproj")
     build
-    upload_to_testflight
+    pilot
   end
 end

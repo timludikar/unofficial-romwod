@@ -34,6 +34,20 @@
                ReferencedContainer = "container:ROMWOD.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "NO"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "90D9BD132127364200172D88"
+               BuildableName = "ROMWODUISnapshots.xctest"
+               BlueprintName = "ROMWODUISnapshots"
+               ReferencedContainer = "container:ROMWOD.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -49,16 +63,6 @@
                BlueprintIdentifier = "9087B00D20F4EAB200179EFB"
                BuildableName = "ROMWODTests.xctest"
                BlueprintName = "ROMWODTests"
-               ReferencedContainer = "container:ROMWOD.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "90D9BD132127364200172D88"
-               BuildableName = "ROMWODUISnapshots.xctest"
-               BlueprintName = "ROMWODUISnapshots"
                ReferencedContainer = "container:ROMWOD.xcodeproj">
             </BuildableReference>
          </TestableReference>
