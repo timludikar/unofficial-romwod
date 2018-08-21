@@ -55,7 +55,19 @@ platform :ios do
     configuration = options[:configuration]
     export_method = options[:export_method]
     disable_automatic_code_signing(path: "ROMWOD.xcodeproj")
-    gym(scheme: scheme, clean: true, configuration: configuration, export_method: export_method, output_name: "ROMWOD.ipa", xcargs: "CODE_SIGNING_REQUIRED=NO") 
+    gym(
+      scheme: scheme, 
+      clean: true, 
+      configuration: configuration, 
+      export_method: "app-store",
+      export_options: {
+        provisioningProfiles: {
+          "timludikar.ROMWOD" => "match AppStore timludikar.ROMWOD"
+        }
+      }, 
+      output_name: "ROMWOD.ipa",
+      xcargs: "CODE_SIGNING_REQUIRED=NO"
+    ) 
     enable_automatic_code_signing(path: "ROMWOD.xcodeproj")
   end
 
@@ -69,12 +81,7 @@ platform :ios do
     
     build_app(
       scheme: "ROMWOD",
-      export_method: "app-store",
-      export_options: {
-        provisioningProfiles: {
-          "timludikar.ROMWOD" => "match AppStore timludikar.ROMWOD"
-        }
-      }
+      
     )
     enable_automatic_code_signing(path: "ROMWOD.xcodeproj")
     upload_to_testflight
