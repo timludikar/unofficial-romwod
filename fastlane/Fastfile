@@ -38,7 +38,7 @@ platform :ios do
   end
 
   desc "Build Application"
-  lane : do |options|
+  lane :build do |options|
 
     password = SecureRandom.base64
     keychain_name = "fastlane"
@@ -54,8 +54,10 @@ platform :ios do
     if options[:scheme]
       scheme = options.scheme
     end
+
     configuration = options[:configuration]
     export_method = options[:export_method]
+    
     build_app(
       scheme: "ROMWOD",
       clean: true
