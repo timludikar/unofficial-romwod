@@ -28,8 +28,8 @@ platform :ios do
 
   lane :keychain do |options|
     create_keychain(
-      name: options.keychain_name,
-      password: options.password,
+      name: options[:keychain_name],
+      password: options[:password],
       default_keychain: true,
       unlock: true,
       timeout: 3600,
@@ -39,7 +39,7 @@ platform :ios do
 
   desc "Build Application"
   lane :build do |options|
-  
+
     password = SecureRandom.base64
     keychain_name = "fastlane"
     ENV["MATCH_KEYCHAIN_NAME"] = keychain_name
@@ -55,7 +55,7 @@ platform :ios do
     configuration = options[:configuration]
     export_method = options[:export_method]
     disable_automatic_code_signing(path: "ROMWOD.xcodeproj")
-    gym(scheme: scheme, configuration: configuration, export_method: export_method, output_name: "ROMWOD.ipa", xcargs: "CODE_SIGNING_REQUIRED=NO") 
+    gym(scheme: scheme, clean: true, configuration: configuration, export_method: export_method, output_name: "ROMWOD.ipa", xcargs: "CODE_SIGNING_REQUIRED=NO") 
     enable_automatic_code_signing(path: "ROMWOD.xcodeproj")
   end
 
