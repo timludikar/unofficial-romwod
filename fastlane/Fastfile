@@ -38,53 +38,37 @@ platform :ios do
   end
 
   desc "Build Application"
-  lane :build do |options|
+  lane : do |options|
 
     password = SecureRandom.base64
     keychain_name = "fastlane"
+
     ENV["MATCH_KEYCHAIN_NAME"] = keychain_name
+
     ENV["MATCH_KEYCHAIN_PASSWORD"] = password
     keychain(name: keychain_name, password: password)
     scheme = "ROMWOD"
+
     match(type: "appstore", keychain_name: keychain_name, keychain_password: password, readonly: true)
+    
     if options[:scheme]
       scheme = options.scheme
     end
     configuration = options[:configuration]
     export_method = options[:export_method]
-    disable_automatic_code_signing(path: "ROMWOD.xcodeproj")
     build_app(
       scheme: "ROMWOD",
       clean: true
     )
-    #gym(
-    #  scheme: scheme, 
-    #  clean: true, 
-    #  configuration: configuration, 
-    #  export_method: "app-store",
-    #  export_options: {
-    #    provisioningProfiles: {
-    #      "timludikar.ROMWOD" => "match AppStore timludikar.ROMWOD"
-    #    }
-    #  }, 
-    #  output_name: "ROMWOD.ipa",
-    #  xcargs: "CODE_SIGNING_REQUIRED=NO"
-    #) 
-    enable_automatic_code_signing(path: "ROMWOD.xcodeproj")
   end
 
   desc "Push a new beta build to TestFlight"
   lane :beta do
     match(type: "appstore")
-    sync_code_signing(type: "appstore")
     tests
     capture_screenshots
     increment_build_number(xcodeproj: "ROMWOD.xcodeproj")
-    
-    build_app(
-      scheme: "ROMWOD",
-    )
-    enable_automatic_code_signing(path: "ROMWOD.xcodeproj")
+    build
     upload_to_testflight
   end
 end
