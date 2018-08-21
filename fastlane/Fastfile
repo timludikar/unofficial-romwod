@@ -26,10 +26,10 @@ platform :ios do
     run_tests(scheme: "ROMWOD", devices: ["iPhone 8"])
   end
 
-  lane :keychain do
+  lane :keychain do |options|
     create_keychain(
-      name: "ROMWOD_KEYCHAIN",
-      password: "password",
+      name: options.keychain_name,
+      password: options.password,
       default_keychain: true,
       unlock: true,
       timeout: 3600,
@@ -39,8 +39,16 @@ platform :ios do
 
   desc "Build Application"
   lane :build do |options|
-    match(type: "development")
+  
+    password = SecureRandom.base64
+    keychain_name = "fastlane"
+    ENV["MATCH_KEYCHAIN_NAME"] = keychain_name
+    ENV["MATCH_KEYCHAIN_PASSWORD"] = password
+    keychain(name: keychain_name, password: password)
     scheme = "ROMWOD"
+
+    match(type: "appstore", keychain_name: keychain_name, keychain_password: password, readonly: true)
+
     if options[:scheme]
       scheme = options.scheme
     end
