@@ -28,7 +28,7 @@ platform :ios do
 
   lane :keychain do |options|
     create_keychain(
-      name: options[:keychain_name],
+      name: options[:name],
       password: options[:password],
       default_keychain: true,
       unlock: true,
