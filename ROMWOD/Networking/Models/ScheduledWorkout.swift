@@ -17,6 +17,8 @@ struct ScheduledWorkouts: Decodable {
     let quote: String
     let videoOrder: Int
     let video: Video
+
+    var isSelected = false
     
     enum CodingKeys: String, CodingKey {
         case id

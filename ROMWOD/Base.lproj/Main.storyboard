@@ -21,13 +21,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hIS-1y-bZd">
-                                <rect key="frame" x="32" y="278.33333333333331" width="350" height="179.33333333333331"/>
+                                <rect key="frame" x="32" y="278.66666666666669" width="350" height="179"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Q9N-DA-lvx">
-                                        <rect key="frame" x="0.0" y="0.0" width="350" height="20.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3l-SM-4kM">
-                                                <rect key="frame" x="0.0" y="0.0" width="350" height="20.333333333333332"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20.329999999999998" id="YuV-Ed-FVN"/>
                                                 </constraints>
@@ -38,7 +38,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="PHw-Nn-Ghs">
-                                        <rect key="frame" x="0.0" y="28.333333333333371" width="350" height="30"/>
+                                        <rect key="frame" x="0.0" y="28" width="350" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XH9-Wj-kvq">
                                                 <rect key="frame" x="0.0" y="0.0" width="92" height="30"/>
@@ -58,7 +58,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2uY-Zp-Sg9">
-                                        <rect key="frame" x="0.0" y="66.333333333333371" width="350" height="30"/>
+                                        <rect key="frame" x="0.0" y="66" width="350" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8G-dv-nKT">
                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
@@ -79,7 +79,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wzf-Fy-r0y">
-                                        <rect key="frame" x="0.0" y="104.33333333333337" width="350" height="36"/>
+                                        <rect key="frame" x="0.0" y="104" width="350" height="36"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tA2-9y-3L7">
                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="36"/>
@@ -98,7 +98,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="97N-Kr-TZS">
-                                        <rect key="frame" x="0.0" y="148.33333333333337" width="350" height="31"/>
+                                        <rect key="frame" x="0.0" y="148" width="350" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remember Me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1UF-wI-llH">
                                                 <rect key="frame" x="0.0" y="0.0" width="293" height="31"/>
@@ -181,12 +181,13 @@
                                         </constraints>
                                         <viewLayoutGuide key="safeArea" id="DV5-Wh-46l"/>
                                         <connections>
-                                            <outlet property="videoThumbnail" destination="62i-bD-o0F" id="FuZ-bN-UHJ"/>
+                                            <outlet property="videoThumbnail" destination="62i-bD-o0F" id="5St-6b-IyY"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="uY4-Vw-Mel" id="Val-gr-gC4"/>
+                                    <outlet property="delegate" destination="cBT-bb-RkP" id="bsi-C9-UtL"/>
                                 </connections>
                             </collectionView>
                         </subviews>

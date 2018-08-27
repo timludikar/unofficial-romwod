@@ -1,4 +1,4 @@
-//
+
 //  ListingViewController.swift
 //  ROMWOD
 //
@@ -11,30 +11,12 @@ import UIKit
 class ListingViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    let httpClient = HTTPClient()
-//    var videoList: VideoList
-    var data = [ScheduleResponse]()
-
+    lazy var videoList = VideoList(withDelegate: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.fetchSchedule()
-    }
-    
-    private func fetchSchedule(){
-        let req = ScheduleRequest()
-        
-        httpClient.getSchedule(from: req.url) { results in
-            switch results {
-            case let .success(returnedValue):
-                self.data = returnedValue.response
-//                self.videoList = returnedValue.response
-                self.reloadCollectionView()
-            case let .failure(errorValue):
-                print(errorValue)
-            }
-        }
+        collectionView.delegate = self
+        videoList.populateSchedule(with: Date().userDate())
     }
     
     private func reloadCollectionView(){
@@ -43,22 +25,41 @@ class ListingViewController: UIViewController {
     }
 }
 
-extension ListingViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if ((self.data.first?.workouts) != nil) {
-            return (self.data.first?.workouts.count)!
-        }
-        return 0
+extension ListingViewController: VideoListDelegate {
+    func videoList(_ videoList: VideoList, didFinishWith data: [ScheduleResponse]) {
+        self.reloadCollectionView()
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "videoThumbnail", for: indexPath) as! VideoThumbnail
+    func videoList(_ videoList: VideoList, didCancelWith error: Error) {
+        print(error)
+    }
+}
 
-        guard let workoutItem = self.data.first?.workouts[indexPath.row] else { return cell }
-        
-        let data = try? Data(contentsOf: workoutItem.video.thumbnail.url)
-        
-        cell.displayContent(title: workoutItem.name, date: workoutItem.date, description: workoutItem.description, thumbnail: data!)
-        return cell
+extension ListingViewController: UICollectionViewDataSource {
+    
+        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "videoThumbnail", for: indexPath) as! VideoThumbnail
+            let workoutItem = self.videoList.workouts[indexPath.row]
+            print("Adding \(indexPath.row)")
+            
+            videoList.fetchThumbnail(for: workoutItem) { (image) in
+                DispatchQueue.main.async {
+                    cell.videoThumbnail?.thumbnail.image = image
+                }
+            }
+            
+            cell.videoThumbnail?.desc.text = workoutItem.description
+            cell.videoThumbnail?.title.text = workoutItem.name
+
+            return cell
+    }
+}
+
+extension ListingViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if((self.videoList.workouts.first) != nil) {
+            return (self.videoList.workouts.count)
+        }
+        return 0
     }
 }

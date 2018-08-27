@@ -14,7 +14,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIVideoThumbnail" customModule="ROMWOD" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="WPf-JF-4C4"/>
-                <outlet property="date" destination="G6J-VE-oi7" id="sE6-ir-1nb"/>
+                <outlet property="date" destination="G6J-VE-oi7" id="SQb-EI-4zc"/>
                 <outlet property="desc" destination="uJH-lZ-cEe" id="nbu-u5-Ia8"/>
                 <outlet property="descriptionTab" destination="DbI-vL-7Kg" id="kvX-5d-OzN"/>
                 <outlet property="drawConstraint" destination="7cZ-GD-zwI" id="YXg-4Z-Mlm"/>
@@ -24,7 +24,7 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="780" height="371"/>
+            <rect key="frame" x="0.0" y="0.0" width="660" height="371"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6pX-mw-5hE">
@@ -35,7 +35,7 @@
                             <gestureRecognizers/>
                             <viewLayoutGuide key="safeArea" id="cDc-AH-W1u"/>
                         </imageView>
-                        <view alpha="0.59999999999999998" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DbI-vL-7Kg">
+                        <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DbI-vL-7Kg">
                             <rect key="frame" x="0.0" y="271" width="780" height="100"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bn9-EQ-SLv">
@@ -79,13 +79,14 @@
                     </constraints>
                     <variation key="default">
                         <mask key="subviews">
+                            <exclude reference="DbI-vL-7Kg"/>
                             <exclude reference="uJH-lZ-cEe"/>
                             <exclude reference="G6J-VE-oi7"/>
                         </mask>
                     </variation>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="lWa-hi-O2n" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="16:9" id="GIv-Xb-r8o"/>
@@ -96,15 +97,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <connections>
-                <outletCollection property="gestureRecognizers" destination="pFr-hf-9FJ" appends="YES" id="Aop-5d-gmo"/>
-            </connections>
-            <point key="canvasLocation" x="28" y="-678.5"/>
+            <point key="canvasLocation" x="-32" y="-678.5"/>
         </view>
-        <tapGestureRecognizer id="pFr-hf-9FJ">
-            <connections>
-                <action selector="tapOn:" destination="-1" id="BYk-Ss-j5f"/>
-            </connections>
-        </tapGestureRecognizer>
     </objects>
 </document>

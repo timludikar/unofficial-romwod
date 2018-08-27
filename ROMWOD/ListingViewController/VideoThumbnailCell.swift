@@ -13,8 +13,6 @@ class VideoThumbnail: UICollectionViewCell {
     
     func displayContent(title: String, date: Date, description: String, thumbnail: Data){
         videoThumbnail.title.text = title
-        videoThumbnail.setDate(to: date)
         videoThumbnail.desc.text = description
-        videoThumbnail.setImage(to: thumbnail)
     }
 }
