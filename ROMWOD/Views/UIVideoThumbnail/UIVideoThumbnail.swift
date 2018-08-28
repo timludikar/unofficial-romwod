@@ -80,6 +80,33 @@ import UIKit
         }, { _ in
         })
     }
+    
+    func showDate(){
+        date.alpha = 0
+        date.isHidden = false
+        let animator = UIViewPropertyAnimator(duration: 1, curve: .easeInOut)
+        animator.addAnimations {
+            self.date.alpha = 1
+        }
+        
+        animator.startAnimation()
+    }
+    
+    func hideDate(){
+
+        let animator = UIViewPropertyAnimator(duration: 1, curve: .easeInOut)
+        animator.addCompletion { (_) in
+            self.date.alpha = 0
+            self.date.isHidden = true
+        }
+        animator.addAnimations {
+            self.date.alpha = 0
+        }
+        
+        animator.startAnimation()
+        
+
+    }
 
     
     func loadViewFromNib() -> UIView? {

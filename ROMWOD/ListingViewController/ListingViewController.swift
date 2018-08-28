@@ -64,6 +64,10 @@ extension ListingViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? VideoThumbnail else { return }
         videoList.workouts[indexPath.item].isHidden = !(videoList.workouts[indexPath.item].isHidden)
-        cell.videoThumbnail?.date.isHidden = videoList.workouts[indexPath.item].isHidden
+        if(videoList.workouts[indexPath.item].isHidden == true){
+            cell.videoThumbnail?.hideDate()
+        } else {
+            cell.videoThumbnail?.showDate()
+        }
     }
 }
