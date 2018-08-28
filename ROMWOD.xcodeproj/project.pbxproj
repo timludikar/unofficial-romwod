@@ -25,6 +25,7 @@
 		90259519210A18200056987E /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90259518210A18200056987E /* Response.swift */; };
 		9025951B210B714A0056987E /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9025951A210B714A0056987E /* LoginRequest.swift */; };
 		9025951F210BBDA30056987E /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9025951E210BBDA30056987E /* HTTPClient.swift */; };
+		906AAB102135C5210027A37B /* VideoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906AAB0F2135C5210027A37B /* VideoDetailViewController.swift */; };
 		9087AFFC20F4EAB000179EFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9087AFFB20F4EAB000179EFB /* AppDelegate.swift */; };
 		9087B00320F4EAB000179EFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9087B00120F4EAB000179EFB /* Main.storyboard */; };
 		9087B00520F4EAB200179EFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9087B00420F4EAB200179EFB /* Assets.xcassets */; };
@@ -84,6 +85,7 @@
 		90259518210A18200056987E /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		9025951A210B714A0056987E /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		9025951E210BBDA30056987E /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		906AAB0F2135C5210027A37B /* VideoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetailViewController.swift; sourceTree = "<group>"; };
 		9087AFF820F4EAB000179EFB /* ROMWOD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ROMWOD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9087AFFB20F4EAB000179EFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9087B00220F4EAB000179EFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 		9087AFFA20F4EAB000179EFB /* ROMWOD */ = {
 			isa = PBXGroup;
 			children = (
+				906AAB0F2135C5210027A37B /* VideoDetailViewController.swift */,
 				901A9E9121230A9C003E1EB3 /* LoginViewController */,
 				901A9E9021230A31003E1EB3 /* ListingViewController */,
 				901A9E3B211A3418003E1EB3 /* Utilities */,
@@ -497,6 +500,7 @@
 				901A9E3F211A3418003E1EB3 /* DateWrapper.swift in Sources */,
 				9087AFFC20F4EAB000179EFB /* AppDelegate.swift in Sources */,
 				9025951F210BBDA30056987E /* HTTPClient.swift in Sources */,
+				906AAB102135C5210027A37B /* VideoDetailViewController.swift in Sources */,
 				9087B03320FCCD6F00179EFB /* User.swift in Sources */,
 				90B7AE37211243E700BA2905 /* Video.swift in Sources */,
 				9025950F2108FDE50056987E /* ScheduleRequest.swift in Sources */,

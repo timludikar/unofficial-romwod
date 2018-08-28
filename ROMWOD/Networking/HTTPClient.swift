@@ -26,4 +26,11 @@ class HTTPClient: Router {
     func signIn(from url: URLRequest, with data: LoginRequest, completion: @escaping((Result<ProfileResponse, RequestError>)->Void)){
         upload(with: url, from: data, completion: completion)
     }
+    
+    func getVideoDetails(from url: URLRequest) {
+        let task = URLSession.shared.dataTask(with: url){ (data, response, error) in
+            print(data)
+        }
+        task.resume()
+    }
 }

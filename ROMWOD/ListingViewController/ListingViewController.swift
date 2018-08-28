@@ -23,6 +23,10 @@ class ListingViewController: UIViewController {
         collectionView.reloadData()
         collectionView.collectionViewLayout.invalidateLayout()
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        var videoDetailsViewController = segue.destination as! VideoDetailViewController
+//    }
 }
 
 extension ListingViewController: VideoListDelegate {
@@ -62,12 +66,15 @@ extension ListingViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? VideoThumbnail else { return }
-        videoList.workouts[indexPath.item].isHidden = !(videoList.workouts[indexPath.item].isHidden)
-        if(videoList.workouts[indexPath.item].isHidden == true){
-            cell.videoThumbnail?.hideDate()
-        } else {
-            cell.videoThumbnail?.showDate()
-        }
+        self.performSegue(withIdentifier: "ShowVideoSegue", sender: self)
+//        videoPlayer.performSegue(withIdentifier: "ShowVideoSegue", sender: self)
+        
+//        guard let cell = collectionView.cellForItem(at: indexPath) as? VideoThumbnail else { return }
+//        videoList.workouts[indexPath.item].isHidden = !(videoList.workouts[indexPath.item].isHidden)
+//        if(videoList.workouts[indexPath.item].isHidden == true){
+//            cell.videoThumbnail?.hideDate()
+//        } else {
+//            cell.videoThumbnail?.showDate()
+//        }
     }
 }
