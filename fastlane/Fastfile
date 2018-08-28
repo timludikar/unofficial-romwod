@@ -69,6 +69,12 @@ platform :ios do
     )
   end
 
+  desc "Travis CI branch build"
+  lane :travis do 
+    match(type: "appstore")
+    tests
+  end
+
   desc "Push a new beta build to TestFlight"
   lane :beta do
     match(type: "appstore")
