@@ -18,7 +18,7 @@ struct ScheduledWorkouts: Decodable {
     let videoOrder: Int
     let video: Video
 
-    var isSelected = false
+    var isHidden = true
     
     enum CodingKeys: String, CodingKey {
         case id

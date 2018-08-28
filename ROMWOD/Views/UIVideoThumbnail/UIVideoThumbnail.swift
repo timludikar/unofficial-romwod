@@ -11,7 +11,7 @@ import UIKit
 @IBDesignable class UIVideoThumbnail: UIView {
     
     @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var date: RMDateLabel!
     @IBOutlet weak var desc: UILabel!
     @IBOutlet weak var thumbnail: UIImageView!
     @IBOutlet weak var descriptionTab: UIView!
@@ -34,6 +34,14 @@ import UIKit
     }
 
     let nibName = "UIVideoThumbnail"
+    
+    convenience init(frame: CGRect, workout item: ScheduledWorkouts) {
+        self.init(frame: frame)
+        self.title.text = item.name
+        self.desc.text = item.description
+        self.date.date = item.date
+        self.date.isHidden = item.isHidden
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -92,7 +100,6 @@ import UIKit
 class RMDateLabel: UILabel {
     var date: Date? {
         didSet {
-            print("DID SET")
             let dateFormat = DateFormatter()
             guard let date = date else { return }
             dateFormat.dateFormat = "EEEE, MMMM d, YYYY"

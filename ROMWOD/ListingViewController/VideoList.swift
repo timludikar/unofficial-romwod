@@ -25,12 +25,6 @@ class VideoList {
         self.delegate = delegate
     }
     
-    func findBy(_ id: Int) -> [ScheduledWorkouts] {
-        return workouts.filter { (workout) -> Bool in
-            workout.id == id
-        }
-    }
-    
     func fetchThumbnail(for workout: ScheduledWorkouts, completion: @escaping(UIImage) -> Void) {
         if let image = imageCache.cachedResponse(for: URLRequest(url: workout.video.thumbnail.url)){
             completion(UIImage(data: image.data)!)

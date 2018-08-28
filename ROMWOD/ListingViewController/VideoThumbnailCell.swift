@@ -9,10 +9,9 @@
 import UIKit
 
 class VideoThumbnail: UICollectionViewCell {
-    @IBOutlet weak var videoThumbnail: UIVideoThumbnail!
-    
-    func displayContent(title: String, date: Date, description: String, thumbnail: Data){
-        videoThumbnail.title.text = title
-        videoThumbnail.desc.text = description
+    var videoThumbnail: UIVideoThumbnail? {
+        didSet {
+            self.addSubview(videoThumbnail!)
+        }
     }
 }

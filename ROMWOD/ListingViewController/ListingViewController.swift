@@ -40,17 +40,15 @@ extension ListingViewController: UICollectionViewDataSource {
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "videoThumbnail", for: indexPath) as! VideoThumbnail
             let workoutItem = self.videoList.workouts[indexPath.row]
-            print("Adding \(indexPath.row)")
+            let videoThumbnail = UIVideoThumbnail(frame: cell.bounds, workout: workoutItem)
             
-            videoList.fetchThumbnail(for: workoutItem) { (image) in
+            videoList.fetchThumbnail(for: workoutItem) {[weak videoThumbnail](image) in
                 DispatchQueue.main.async {
-                    cell.videoThumbnail?.thumbnail.image = image
+                    videoThumbnail?.thumbnail.image = image
                 }
             }
             
-            cell.videoThumbnail?.desc.text = workoutItem.description
-            cell.videoThumbnail?.title.text = workoutItem.name
-
+            cell.videoThumbnail = videoThumbnail
             return cell
     }
 }
@@ -61,5 +59,11 @@ extension ListingViewController: UICollectionViewDelegate {
             return (self.videoList.workouts.count)
         }
         return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? VideoThumbnail else { return }
+        videoList.workouts[indexPath.item].isHidden = !(videoList.workouts[indexPath.item].isHidden)
+        cell.videoThumbnail?.date.isHidden = videoList.workouts[indexPath.item].isHidden
     }
 }
