@@ -9,8 +9,6 @@
 import Foundation
 import UIKit
 
-let imageCache = URLCache(memoryCapacity: 10, diskCapacity: 10, diskPath: nil)
-
 protocol VideoListDelegate: class {
     func videoList(_ videoList: VideoList, didFinishWith data: [ScheduleResponse])
     func videoList(_ videoList: VideoList, didCancelWith error: Error)
@@ -25,19 +23,19 @@ class VideoList {
         self.delegate = delegate
     }
     
-    func fetchThumbnail(for workout: ScheduledWorkouts, completion: @escaping(UIImage) -> Void) {
-        if let image = imageCache.cachedResponse(for: URLRequest(url: workout.video.thumbnail.url)){
-            completion(UIImage(data: image.data)!)
-        } else {
-            URLSession.shared.dataTask(with: workout.video.thumbnail.url){ (data, response, error) in
-                guard let data = data else { return }
-                let cache = CachedURLResponse(response: response!, data: data)
-                imageCache.storeCachedResponse(cache, for: URLRequest(url: workout.video.thumbnail.url))
-                let image = UIImage(data: data)!
-                completion(image)
-                }.resume()
-        }
-    }
+//    func fetchThumbnail(for workout: ScheduledWorkouts, completion: @escaping(UIImage) -> Void) {
+//        if let image = imageCache.cachedResponse(for: URLRequest(url: workout.video.thumbnail.url)){
+//            completion(UIImage(data: image.data)!)
+//        } else {
+//            URLSession.shared.dataTask(with: workout.video.thumbnail.url){ (data, response, error) in
+//                guard let data = data else { return }
+//                let cache = CachedURLResponse(response: response!, data: data)
+//                imageCache.storeCachedResponse(cache, for: URLRequest(url: workout.video.thumbnail.url))
+//                let image = UIImage(data: data)!
+//                completion(image)
+//                }.resume()
+//        }
+//    }
     
     func populateSchedule(with date: String) {
         let req = ScheduleRequest(userDate: date, archived: false)

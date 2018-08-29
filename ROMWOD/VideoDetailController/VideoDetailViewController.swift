@@ -14,7 +14,9 @@ class VideoDetailViewController: UIViewController {
     
     var workout: ScheduledWorkouts?
     var videoOptions: [Asset]?
+    
     @IBOutlet weak var playBackButton: UIButton!
+    @IBOutlet weak var thumbnailImage: UIImageView!
     
     @IBAction func playVideo(_ sender: UIButton) {
 
@@ -26,8 +28,17 @@ class VideoDetailViewController: UIViewController {
         }
     }
     
+    private func setupVideoDetails(){
+        ImageLibrary().fetch(from: (workout?.video.thumbnail.url)!) { (image) in
+            DispatchQueue.main.async {
+                self.thumbnailImage.image = image
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupVideoDetails()
         guard let externalId = workout?.video.externalId, let slug = workout?.video.slug else { return }
         let request = "https://fast.wistia.com/embed/medias/\(externalId).json"
         let url = URL(string: request)!

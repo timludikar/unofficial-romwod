@@ -32,5 +32,4 @@ struct Asset: Codable {
         case displayName = "display_name"
         case extType = "ext"
     }
-    
 }

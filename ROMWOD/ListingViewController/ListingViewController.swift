@@ -30,6 +30,14 @@ class ListingViewController: UIViewController {
         if segue.destination is VideoDetailViewController {
             let vc = segue.destination as? VideoDetailViewController
             vc?.workout = self.selectedWorkout
+//
+//            videoList.fetchThumbnail(for: self.selectedWorkout!) {[weak vc](image) in
+//                DispatchQueue.main.async {
+//                    vc?.thumbnailImage.image = image
+//                }
+//            }
+            
+//            vc?.thumbnailImage = self.selectedWorkout?.video.thumbnail.url
         }
     }
 }
@@ -51,11 +59,17 @@ extension ListingViewController: UICollectionViewDataSource {
             let workoutItem = self.videoList.workouts[indexPath.row]
             let videoThumbnail = UIVideoThumbnail(frame: cell.bounds, workout: workoutItem)
             
-            videoList.fetchThumbnail(for: workoutItem) {[weak videoThumbnail](image) in
+            
+            ImageLibrary().fetch(from: workoutItem.video.thumbnail.url) { [weak videoThumbnail](image) in
                 DispatchQueue.main.async {
                     videoThumbnail?.thumbnail.image = image
                 }
             }
+//            videoList.fetchThumbnail(for: workoutItem) {[weak videoThumbnail](image) in
+//                DispatchQueue.main.async {
+//                    videoThumbnail?.thumbnail.image = image
+//                }
+//            }
             
             cell.videoThumbnail = videoThumbnail
             return cell
