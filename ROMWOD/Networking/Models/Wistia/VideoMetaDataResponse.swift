@@ -18,4 +18,19 @@ struct Media: Codable {
 
 struct Asset: Codable {
     let type: String
+    let slug: String
+    let displayName: String
+    let width: Int
+    let height: Int
+    let extType: String
+    let size: Int
+    let bitrate: Int
+    let url: URL
+    
+    enum CodingKeys: String, CodingKey {
+        case type, slug, width, height, size, bitrate, url
+        case displayName = "display_name"
+        case extType = "ext"
+    }
+    
 }

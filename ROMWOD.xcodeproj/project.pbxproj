@@ -217,6 +217,14 @@
 			path = Wistia;
 			sourceTree = "<group>";
 		};
+		906AAB172136D7290027A37B /* VideoDetailController */ = {
+			isa = PBXGroup;
+			children = (
+				906AAB0F2135C5210027A37B /* VideoDetailViewController.swift */,
+			);
+			path = VideoDetailController;
+			sourceTree = "<group>";
+		};
 		9087AFEF20F4EAB000179EFB = {
 			isa = PBXGroup;
 			children = (
@@ -242,7 +250,7 @@
 		9087AFFA20F4EAB000179EFB /* ROMWOD */ = {
 			isa = PBXGroup;
 			children = (
-				906AAB0F2135C5210027A37B /* VideoDetailViewController.swift */,
+				906AAB172136D7290027A37B /* VideoDetailController */,
 				901A9E9121230A9C003E1EB3 /* LoginViewController */,
 				901A9E9021230A31003E1EB3 /* ListingViewController */,
 				901A9E3B211A3418003E1EB3 /* Utilities */,
