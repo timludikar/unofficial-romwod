@@ -27,10 +27,12 @@ class HTTPClient: Router {
         upload(with: url, from: data, completion: completion)
     }
     
-    func getVideoDetails(from url: URLRequest) {
-        let task = URLSession.shared.dataTask(with: url){ (data, response, error) in
-            print(data)
-        }
-        task.resume()
+    func getVideoDetails(from url: URLRequest, completion: @escaping((Result<VideoMetaData, RequestError>)->Void)){
+        fetch(with: url, completion: completion)
+//        let task = URLSession.shared.dataTask(with: req){ (data, response, error) in
+//            guard let _ = response as? HTTPURLResponse else {return}
+//            let _ = String(data: data!, encoding: String.Encoding.utf8)
+//        }
+//        task.resume()
     }
 }

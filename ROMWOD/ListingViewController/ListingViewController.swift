@@ -9,6 +9,8 @@
 import UIKit
 
 class ListingViewController: UIViewController {
+    
+    private var selectedWorkout: ScheduledWorkouts?
 
     @IBOutlet weak var collectionView: UICollectionView!
     lazy var videoList = VideoList(withDelegate: self)
@@ -24,9 +26,12 @@ class ListingViewController: UIViewController {
         collectionView.collectionViewLayout.invalidateLayout()
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        var videoDetailsViewController = segue.destination as! VideoDetailViewController
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is VideoDetailViewController {
+            let vc = segue.destination as? VideoDetailViewController
+            vc?.workout = self.selectedWorkout
+        }
+    }
 }
 
 extension ListingViewController: VideoListDelegate {
@@ -66,8 +71,8 @@ extension ListingViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedWorkout = videoList.workouts[indexPath.item]
         self.performSegue(withIdentifier: "ShowVideoSegue", sender: self)
-//        videoPlayer.performSegue(withIdentifier: "ShowVideoSegue", sender: self)
         
 //        guard let cell = collectionView.cellForItem(at: indexPath) as? VideoThumbnail else { return }
 //        videoList.workouts[indexPath.item].isHidden = !(videoList.workouts[indexPath.item].isHidden)

@@ -26,6 +26,7 @@
 		9025951B210B714A0056987E /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9025951A210B714A0056987E /* LoginRequest.swift */; };
 		9025951F210BBDA30056987E /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9025951E210BBDA30056987E /* HTTPClient.swift */; };
 		906AAB102135C5210027A37B /* VideoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906AAB0F2135C5210027A37B /* VideoDetailViewController.swift */; };
+		906AAB162136A1460027A37B /* VideoMetaDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906AAB152136A1460027A37B /* VideoMetaDataResponse.swift */; };
 		9087AFFC20F4EAB000179EFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9087AFFB20F4EAB000179EFB /* AppDelegate.swift */; };
 		9087B00320F4EAB000179EFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9087B00120F4EAB000179EFB /* Main.storyboard */; };
 		9087B00520F4EAB200179EFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9087B00420F4EAB200179EFB /* Assets.xcassets */; };
@@ -86,6 +87,7 @@
 		9025951A210B714A0056987E /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		9025951E210BBDA30056987E /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		906AAB0F2135C5210027A37B /* VideoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetailViewController.swift; sourceTree = "<group>"; };
+		906AAB152136A1460027A37B /* VideoMetaDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoMetaDataResponse.swift; sourceTree = "<group>"; };
 		9087AFF820F4EAB000179EFB /* ROMWOD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ROMWOD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9087AFFB20F4EAB000179EFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9087B00220F4EAB000179EFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 		9025951321090A6D0056987E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				906AAB142136A1330027A37B /* Wistia */,
 				9087B03420FCE1BA00179EFB /* ProfileResponse.swift */,
 				9025951A210B714A0056987E /* LoginRequest.swift */,
 				9025950E2108FDE50056987E /* ScheduleRequest.swift */,
@@ -204,6 +207,14 @@
 				901A9E94212319CF003E1EB3 /* Request.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		906AAB142136A1330027A37B /* Wistia */ = {
+			isa = PBXGroup;
+			children = (
+				906AAB152136A1460027A37B /* VideoMetaDataResponse.swift */,
+			);
+			path = Wistia;
 			sourceTree = "<group>";
 		};
 		9087AFEF20F4EAB000179EFB = {
@@ -497,6 +508,7 @@
 				902595112109009D0056987E /* URLContants.swift in Sources */,
 				9087B03520FCE1BA00179EFB /* ProfileResponse.swift in Sources */,
 				90B7AE33211133F300BA2905 /* UIVideoThumbnail.swift in Sources */,
+				906AAB162136A1460027A37B /* VideoMetaDataResponse.swift in Sources */,
 				901A9E3F211A3418003E1EB3 /* DateWrapper.swift in Sources */,
 				9087AFFC20F4EAB000179EFB /* AppDelegate.swift in Sources */,
 				9025951F210BBDA30056987E /* HTTPClient.swift in Sources */,
