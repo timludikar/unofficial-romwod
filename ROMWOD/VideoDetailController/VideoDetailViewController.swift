@@ -46,10 +46,14 @@ class VideoDetailViewController: UIViewController {
         req.addValue("https://app.romwod.com/workout/\(slug)", forHTTPHeaderField: "Referer")
         
         HTTPClient().getVideoDetails(from: req) { result in
+
             switch result {
             case let .success(data):
+                DispatchQueue.main.async {
+                    self.playBackButton.isEnabled = true
+                }
                 self.videoOptions = data.media.assets
-                self.playBackButton.isEnabled = true
+
             case .failure(_):
                 print("error")
             }
