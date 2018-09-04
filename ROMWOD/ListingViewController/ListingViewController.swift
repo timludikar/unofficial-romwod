@@ -12,13 +12,17 @@ class ListingViewController: UIViewController {
     
     private var selectedWorkout: ScheduledWorkouts?
 
+    @IBOutlet weak var dateSelector: RWTitleBar!
     @IBOutlet weak var collectionView: UICollectionView!
+    
     lazy var videoList = VideoList(withDelegate: self)
+    private var selectedWeek = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
-        videoList.populateSchedule(with: Date().userDate())
+        videoList.populateSchedule(with: selectedWeek)
+        dateSelector.dateLabel.setRange(startDate: selectedWeek.startOfWeek!, endDate: selectedWeek.endOfWeek!)
     }
     
     private func reloadCollectionView(){

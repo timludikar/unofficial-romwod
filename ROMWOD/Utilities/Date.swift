@@ -9,8 +9,9 @@
 import Foundation
 
 extension Date {
-    func userDate() -> String {
-        let calendar = Calendar.current
+    
+    var simpleFormat: String? {
+        let calendar = Calendar(identifier: .iso8601)
         let year = calendar.component(.year, from: self)
         let month = calendar.component(.month, from: self)
         let day = calendar.component(.day, from: self)
@@ -20,6 +21,12 @@ extension Date {
     var startOfWeek: Date? {
         let calendar = Calendar(identifier: .iso8601)
         return calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self))
+    }
+    
+    var endOfWeek: Date? {
+        let calendar = Calendar(identifier: .iso8601)
+        guard let startOfWeek = startOfWeek else { return nil }
+        return calendar.date(byAdding: .day, value: 7, to: startOfWeek)
     }
     
     static let timestamp: DateFormatter = {

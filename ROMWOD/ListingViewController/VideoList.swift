@@ -37,8 +37,8 @@ class VideoList {
 //        }
 //    }
     
-    func populateSchedule(with date: String) {
-        let req = ScheduleRequest(userDate: date, archived: false)
+    func populateSchedule(with date: Date) {
+        let req = ScheduleRequest(userDate: date.simpleFormat, archived: false)
         
         httpClient.getSchedule(from: req.url) { results in
             switch results {

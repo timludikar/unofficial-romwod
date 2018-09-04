@@ -156,10 +156,6 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="KLz-DE-7mh"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Schedule for:"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="date" value="September 4 - September 9, 2018"/>
-                                </userDefinedRuntimeAttributes>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35A-ku-hsR">
                                 <rect key="frame" x="0.0" y="90" width="414" height="582"/>
@@ -203,6 +199,7 @@
                     <navigationItem key="navigationItem" id="RYJ-6L-HRN"/>
                     <connections>
                         <outlet property="collectionView" destination="35A-ku-hsR" id="bJw-0y-3EL"/>
+                        <outlet property="dateSelector" destination="zVf-D3-hOK" id="Pld-rP-e3Y"/>
                         <segue destination="5aU-A3-WdX" kind="show" identifier="ShowVideoSegue" id="oum-7t-C1j"/>
                     </connections>
                 </viewController>
