@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable class UIVideoThumbnail: UIView {
+class UIVideoThumbnail: UIView {
     
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var date: RMDateLabel!

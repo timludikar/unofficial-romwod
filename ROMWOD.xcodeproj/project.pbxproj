@@ -759,7 +759,7 @@
 				PROVISIONING_PROFILE = "b1192168-9326-44b9-98d9-5b2112227836";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development timludikar.ROMWOD";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -782,7 +782,7 @@
 				PROVISIONING_PROFILE = "ae819f13-5495-4876-be91-8162f49cfcb7";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore timludikar.ROMWOD";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
