@@ -26,7 +26,19 @@ extension Date {
     var endOfWeek: Date? {
         let calendar = Calendar(identifier: .iso8601)
         guard let startOfWeek = startOfWeek else { return nil }
+        return calendar.date(byAdding: .day, value: 6, to: startOfWeek)
+    }
+    
+    var nextWeek: Date? {
+        let calendar = Calendar(identifier: .iso8601)
+        guard let startOfWeek = startOfWeek else { return nil }
         return calendar.date(byAdding: .day, value: 7, to: startOfWeek)
+    }
+    
+    var lastWeek: Date? {
+        let calendar = Calendar(identifier: .iso8601)
+        guard let startOfWeek = startOfWeek else { return nil }
+        return calendar.date(byAdding: .day, value: -7, to: startOfWeek)
     }
     
     static let timestamp: DateFormatter = {

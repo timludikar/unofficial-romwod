@@ -18,6 +18,10 @@ class ListingViewController: UIViewController {
     lazy var videoList = VideoList(withDelegate: self)
     private var selectedWeek = Date()
     
+    private func updateDateSelector() -> Void {
+        dateSelector.dateLabel.setRange(startDate: selectedWeek.startOfWeek!, endDate: selectedWeek.endOfWeek!)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
