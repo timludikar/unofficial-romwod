@@ -29,6 +29,8 @@
 		906AAB162136A1460027A37B /* VideoMetaDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906AAB152136A1460027A37B /* VideoMetaDataResponse.swift */; };
 		906AAB192136F3800027A37B /* ImageLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906AAB182136F3800027A37B /* ImageLibrary.swift */; };
 		906AAB1D213EBE1A0027A37B /* RWNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906AAB1C213EBE1A0027A37B /* RWNavigationBar.swift */; };
+		906AAB1F213ED7350027A37B /* RWTitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906AAB1E213ED7350027A37B /* RWTitleBar.swift */; };
+		906AAB23213ED7630027A37B /* RWTitleBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 906AAB22213ED7630027A37B /* RWTitleBar.xib */; };
 		9087AFFC20F4EAB000179EFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9087AFFB20F4EAB000179EFB /* AppDelegate.swift */; };
 		9087B00320F4EAB000179EFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9087B00120F4EAB000179EFB /* Main.storyboard */; };
 		9087B00520F4EAB200179EFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9087B00420F4EAB200179EFB /* Assets.xcassets */; };
@@ -92,6 +94,8 @@
 		906AAB152136A1460027A37B /* VideoMetaDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoMetaDataResponse.swift; sourceTree = "<group>"; };
 		906AAB182136F3800027A37B /* ImageLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLibrary.swift; sourceTree = "<group>"; };
 		906AAB1C213EBE1A0027A37B /* RWNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWNavigationBar.swift; sourceTree = "<group>"; };
+		906AAB1E213ED7350027A37B /* RWTitleBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWTitleBar.swift; sourceTree = "<group>"; };
+		906AAB22213ED7630027A37B /* RWTitleBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RWTitleBar.xib; sourceTree = "<group>"; };
 		9087AFF820F4EAB000179EFB /* ROMWOD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ROMWOD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9087AFFB20F4EAB000179EFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9087B00220F4EAB000179EFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -229,6 +233,23 @@
 			path = VideoDetailController;
 			sourceTree = "<group>";
 		};
+		906AAB20213ED7400027A37B /* RWNavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				906AAB1C213EBE1A0027A37B /* RWNavigationBar.swift */,
+			);
+			path = RWNavigationBar;
+			sourceTree = "<group>";
+		};
+		906AAB21213ED74B0027A37B /* RWTitleBar */ = {
+			isa = PBXGroup;
+			children = (
+				906AAB1E213ED7350027A37B /* RWTitleBar.swift */,
+				906AAB22213ED7630027A37B /* RWTitleBar.xib */,
+			);
+			path = RWTitleBar;
+			sourceTree = "<group>";
+		};
 		9087AFEF20F4EAB000179EFB = {
 			isa = PBXGroup;
 			children = (
@@ -300,7 +321,8 @@
 		90B7AE34211227A700BA2905 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				906AAB1C213EBE1A0027A37B /* RWNavigationBar.swift */,
+				906AAB21213ED74B0027A37B /* RWTitleBar */,
+				906AAB20213ED7400027A37B /* RWNavigationBar */,
 				90B7AE35211227B400BA2905 /* UIVideoThumbnail */,
 			);
 			path = Views;
@@ -474,6 +496,7 @@
 				9087B00820F4EAB200179EFB /* LaunchScreen.storyboard in Resources */,
 				9087B00520F4EAB200179EFB /* Assets.xcassets in Resources */,
 				90B7AE312111316A00BA2905 /* UIVideoThumbnail.xib in Resources */,
+				906AAB23213ED7630027A37B /* RWTitleBar.xib in Resources */,
 				9087B00320F4EAB000179EFB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -529,6 +552,7 @@
 				9087AFFC20F4EAB000179EFB /* AppDelegate.swift in Sources */,
 				9025951F210BBDA30056987E /* HTTPClient.swift in Sources */,
 				906AAB102135C5210027A37B /* VideoDetailViewController.swift in Sources */,
+				906AAB1F213ED7350027A37B /* RWTitleBar.swift in Sources */,
 				9087B03320FCCD6F00179EFB /* User.swift in Sources */,
 				90B7AE37211243E700BA2905 /* Video.swift in Sources */,
 				9025950F2108FDE50056987E /* ScheduleRequest.swift in Sources */,
