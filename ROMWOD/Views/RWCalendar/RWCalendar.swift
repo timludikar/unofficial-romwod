@@ -20,12 +20,12 @@ class RWCalendar: UIView {
     }
     
     @IBInspectable
-    var borderWidth: CGFloat {
+    var borderWidth: CGFloat = CGFloat(0) {
         didSet { layer.borderWidth = borderWidth }
     }
     
     @IBInspectable
-    var innerBorderWidth: CGFloat {
+    var innerBorderWidth: CGFloat = CGFloat(0) {
         didSet {
             self.subviews.forEach { (view) in
                 view.layer.borderWidth = innerBorderWidth
@@ -42,17 +42,19 @@ class RWCalendar: UIView {
         }
     }
     
+    
     override init(frame: CGRect) {
-        self.borderWidth = CGFloat(0)
-        self.innerBorderWidth = CGFloat(0)
         super.init(frame: frame)
         setup()
     }
     
     required init?(coder aDecoder: NSCoder) {
-        self.borderWidth = CGFloat(0)
-        self.innerBorderWidth = CGFloat(0)
         super.init(coder: aDecoder)
+        setup()
+    }
+    
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
         setup()
     }
     
@@ -68,11 +70,13 @@ class RWCalendar: UIView {
             day.tag = index
             self.addSubview(day)
         }
+        
+        setNeedsLayout()
+        setNeedsDisplay()
     }
     
     @objc
     func tapFunction(_ sender: UIButton){
         delegate?.calendarEvent(self, didSelectItemAt: sender.tag)
     }
-
 }
