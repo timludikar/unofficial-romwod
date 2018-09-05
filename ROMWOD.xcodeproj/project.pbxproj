@@ -41,6 +41,7 @@
 		9087B03320FCCD6F00179EFB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9087B03220FCCD6E00179EFB /* User.swift */; };
 		9087B03520FCE1BA00179EFB /* ProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9087B03420FCE1BA00179EFB /* ProfileResponse.swift */; };
 		908D6D87213F1B800053DA49 /* RWCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908D6D86213F1B800053DA49 /* RWCalendar.swift */; };
+		908D6D8A214035410053DA49 /* RWCalendarEventDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908D6D89214035410053DA49 /* RWCalendarEventDelegate.swift */; };
 		90B7AE312111316A00BA2905 /* UIVideoThumbnail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90B7AE302111316900BA2905 /* UIVideoThumbnail.xib */; };
 		90B7AE33211133F300BA2905 /* UIVideoThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B7AE32211133F300BA2905 /* UIVideoThumbnail.swift */; };
 		90B7AE37211243E700BA2905 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B7AE36211243E700BA2905 /* Video.swift */; };
@@ -113,6 +114,7 @@
 		9087B03220FCCD6E00179EFB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9087B03420FCE1BA00179EFB /* ProfileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileResponse.swift; sourceTree = "<group>"; };
 		908D6D86213F1B800053DA49 /* RWCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWCalendar.swift; sourceTree = "<group>"; };
+		908D6D89214035410053DA49 /* RWCalendarEventDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWCalendarEventDelegate.swift; sourceTree = "<group>"; };
 		90B7AE302111316900BA2905 /* UIVideoThumbnail.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIVideoThumbnail.xib; sourceTree = "<group>"; };
 		90B7AE32211133F300BA2905 /* UIVideoThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVideoThumbnail.swift; sourceTree = "<group>"; };
 		90B7AE36211243E700BA2905 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				908D6D86213F1B800053DA49 /* RWCalendar.swift */,
+				908D6D89214035410053DA49 /* RWCalendarEventDelegate.swift */,
 			);
 			path = RWCalendar;
 			sourceTree = "<group>";
@@ -551,6 +554,7 @@
 				908D6D87213F1B800053DA49 /* RWCalendar.swift in Sources */,
 				9025951B210B714A0056987E /* LoginRequest.swift in Sources */,
 				901A9E95212319CF003E1EB3 /* Request.swift in Sources */,
+				908D6D8A214035410053DA49 /* RWCalendarEventDelegate.swift in Sources */,
 				90259515210A06370056987E /* ScheduleResponse.swift in Sources */,
 				901A9E93212317D4003E1EB3 /* VideoList.swift in Sources */,
 				901A9E3E211A3418003E1EB3 /* Date.swift in Sources */,

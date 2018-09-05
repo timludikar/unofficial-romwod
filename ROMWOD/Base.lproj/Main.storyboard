@@ -223,6 +223,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="RYJ-6L-HRN"/>
                     <connections>
+                        <outlet property="calendarSelector" destination="0Ct-eO-IWO" id="ynv-2z-jDh"/>
                         <outlet property="collectionView" destination="35A-ku-hsR" id="bJw-0y-3EL"/>
                         <outlet property="dateSelector" destination="zVf-D3-hOK" id="Pld-rP-e3Y"/>
                         <segue destination="5aU-A3-WdX" kind="show" identifier="ShowVideoSegue" id="oum-7t-C1j"/>

@@ -12,6 +12,7 @@ class ListingViewController: UIViewController {
     
     private var selectedWorkout: ScheduledWorkouts?
 
+    @IBOutlet weak var calendarSelector: RWCalendar!
     @IBOutlet weak var dateSelector: RWTitleBar!
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -24,6 +25,7 @@ class ListingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        calendarSelector.delegate = self
         collectionView.delegate = self
         videoList.populateSchedule(with: selectedWeek)
         dateSelector.dateLabel.setRange(startDate: selectedWeek.startOfWeek!, endDate: selectedWeek.endOfWeek!)
@@ -103,5 +105,12 @@ extension ListingViewController: UICollectionViewDelegate {
 //        } else {
 //            cell.videoThumbnail?.showDate()
 //        }
+    }
+}
+
+extension ListingViewController: RWCalendarEventDelegate {
+    func calendarEvent(_ calendarEvent: RWCalendar, didSelectItemAt indexPath: Int) {
+        let i = IndexPath(item: indexPath, section: 0)
+        collectionView.scrollToItem(at: i, at: .top, animated: true)
     }
 }

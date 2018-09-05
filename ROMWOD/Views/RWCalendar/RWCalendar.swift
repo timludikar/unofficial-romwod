@@ -12,6 +12,7 @@ import UIKit
 class RWCalendar: UIView {
     
     let DaysOfTheWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    var delegate: RWCalendarEventDelegate?
     
     @IBInspectable
     var borderColour: UIColor? {
@@ -59,11 +60,19 @@ class RWCalendar: UIView {
         let screenWidth = Int(self.frame.size.width/7)
         let calendarHeight = Int(self.frame.size.height)
         for (index, dayOfTheWeek) in DaysOfTheWeek.enumerated() {
-            let day = UILabel(frame: CGRect(x: (index * screenWidth), y: 0, width: screenWidth, height: calendarHeight))
-            day.text = dayOfTheWeek.prefix(3).uppercased()
-            day.textAlignment = .center            
+            let day = UIButton(frame: CGRect(x: (index * screenWidth), y: 0, width: screenWidth, height: calendarHeight))
+            day.addTarget(self, action: #selector(self.tapFunction(_:)), for: UIControlEvents.allTouchEvents)
+            let title = dayOfTheWeek.prefix(3).uppercased()
+            day.setTitleColor(UIColor.black, for: .normal)
+            day.setTitle(title, for: UIControlState.normal)
+            day.tag = index
             self.addSubview(day)
         }
+    }
+    
+    @objc
+    func tapFunction(_ sender: UIButton){
+        delegate?.calendarEvent(self, didSelectItemAt: sender.tag)
     }
 
 }
