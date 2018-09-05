@@ -150,7 +150,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zVf-D3-hOK" customClass="RWTitleBar" customModule="ROMWOD" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zVf-D3-hOK" customClass="RWTitleBar" customModule="ROMWOD" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <gestureRecognizers/>
@@ -158,8 +158,29 @@
                                     <constraint firstAttribute="height" constant="90" id="KLz-DE-7mh"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Ct-eO-IWO" customClass="RWCalendar" customModule="ROMWOD" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="90" width="414" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="3E4-xq-W3M"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColour">
+                                        <color key="value" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="innerBorderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="innerBorderColor">
+                                        <color key="value" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35A-ku-hsR">
-                                <rect key="frame" x="0.0" y="90" width="414" height="582"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="532"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zQb-CX-e5F">
                                     <size key="itemSize" width="414" height="293"/>
@@ -189,11 +210,14 @@
                             <constraint firstItem="35A-ku-hsR" firstAttribute="leading" secondItem="zVf-D3-hOK" secondAttribute="leading" id="Cez-LP-tvG"/>
                             <constraint firstItem="35A-ku-hsR" firstAttribute="leading" secondItem="1rv-nf-OKn" secondAttribute="leading" id="Jer-TY-719"/>
                             <constraint firstItem="1rv-nf-OKn" firstAttribute="trailing" secondItem="35A-ku-hsR" secondAttribute="trailing" id="LBm-K5-vCA"/>
+                            <constraint firstItem="0Ct-eO-IWO" firstAttribute="top" secondItem="zVf-D3-hOK" secondAttribute="bottom" id="PRG-al-1Z4"/>
+                            <constraint firstItem="35A-ku-hsR" firstAttribute="top" secondItem="0Ct-eO-IWO" secondAttribute="bottom" id="T9d-j9-Kv9"/>
                             <constraint firstItem="1rv-nf-OKn" firstAttribute="trailing" secondItem="zVf-D3-hOK" secondAttribute="trailing" id="bFX-eh-hIT"/>
+                            <constraint firstItem="1rv-nf-OKn" firstAttribute="trailing" secondItem="0Ct-eO-IWO" secondAttribute="trailing" id="dSg-9G-oBV"/>
                             <constraint firstItem="zVf-D3-hOK" firstAttribute="top" secondItem="1rv-nf-OKn" secondAttribute="top" id="dqB-Ow-K2x"/>
-                            <constraint firstItem="35A-ku-hsR" firstAttribute="top" secondItem="zVf-D3-hOK" secondAttribute="bottom" id="ggr-R4-91B"/>
                             <constraint firstItem="35A-ku-hsR" firstAttribute="bottom" secondItem="1rv-nf-OKn" secondAttribute="bottom" id="mvs-gO-LVL"/>
                             <constraint firstItem="zVf-D3-hOK" firstAttribute="leading" secondItem="1rv-nf-OKn" secondAttribute="leading" id="pWl-XM-46T"/>
+                            <constraint firstItem="0Ct-eO-IWO" firstAttribute="leading" secondItem="1rv-nf-OKn" secondAttribute="leading" id="w0N-dY-xmO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1rv-nf-OKn"/>
                     </view>
