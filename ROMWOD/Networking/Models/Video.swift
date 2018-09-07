@@ -17,7 +17,7 @@ struct Video: Decodable {
     let state: String
 //    let shortThumbnail: Thumbnail
     let thumbnail: Thumbnail
-//    let duration: String
+    let durationInSeconds: Float
     let createdAt: Date
     let updatedAt: Date
     
@@ -30,7 +30,7 @@ struct Video: Decodable {
         case state
         //        case shortThumbnail = "short_thumbnail"
         case thumbnail
-        //        case duration = "duration_in_seconds"
+        case durationInSeconds = "duration_in_seconds"
         case createdAt = "created_at"
         case updatedAt = "updated_at"
     }

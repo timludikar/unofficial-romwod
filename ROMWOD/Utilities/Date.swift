@@ -41,6 +41,13 @@ extension Date {
         return calendar.date(byAdding: .day, value: -7, to: startOfWeek)
     }
     
+    var formattedDate: String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.dateFormat = "EEEE, MMMM d, YYYY"
+        return formatter.string(from: self)
+    }
+    
     static let timestamp: DateFormatter = {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_US_POSIX")

@@ -9,9 +9,14 @@
 import UIKit
 
 class VideoThumbnail: UICollectionViewCell {
-    var videoThumbnail: UIVideoThumbnail? {
+    var videoThumbnail: RWVideoThumbnail? {
         didSet {
             self.addSubview(videoThumbnail!)
         }
+    }
+    
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        videoThumbnail?.prepareForInterfaceBuilder()
     }
 }

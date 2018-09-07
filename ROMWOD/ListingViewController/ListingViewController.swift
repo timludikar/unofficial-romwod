@@ -66,15 +66,27 @@ extension ListingViewController: UICollectionViewDataSource {
     
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "videoThumbnail", for: indexPath) as! VideoThumbnail
+
             let workoutItem = self.videoList.workouts[indexPath.row]
-            let videoThumbnail = UIVideoThumbnail(frame: cell.bounds, workout: workoutItem)
+            
+            let videoThumbnail = RWVideoThumbnail(frame: cell.bounds)
+            videoThumbnail.dateHeader.text = workoutItem.date.formattedDate
+            videoThumbnail.videoTitle.text = workoutItem.name
+            videoThumbnail.videoDescription.text = workoutItem.description
+            
+            let duration = Int((workoutItem.video.durationInSeconds / 60).rounded())
+            
+            videoThumbnail.videoDuration.text = "\(duration) Min".uppercased()
+//            let videoThumbnail = RWVideoThumbnail(frame: cell.bounds)
+//            let videoThumbnail = UIVideoThumbnail(frame: cell.bounds, workout: workoutItem)
             
             
             ImageLibrary().fetch(from: workoutItem.video.thumbnail.url) { [weak videoThumbnail](image) in
                 DispatchQueue.main.async {
-                    videoThumbnail?.thumbnail.image = image
+                    videoThumbnail?.thumbnailImage.image = image
                 }
             }
+            
 //            videoList.fetchThumbnail(for: workoutItem) {[weak videoThumbnail](image) in
 //                DispatchQueue.main.async {
 //                    videoThumbnail?.thumbnail.image = image
@@ -95,8 +107,8 @@ extension ListingViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.selectedWorkout = videoList.workouts[indexPath.item]
-        self.performSegue(withIdentifier: "ShowVideoSegue", sender: self)
+//        self.selectedWorkout = videoList.workouts[indexPath.item]
+//        self.performSegue(withIdentifier: "ShowVideoSegue", sender: self)
         
 //        guard let cell = collectionView.cellForItem(at: indexPath) as? VideoThumbnail else { return }
 //        videoList.workouts[indexPath.item].isHidden = !(videoList.workouts[indexPath.item].isHidden)

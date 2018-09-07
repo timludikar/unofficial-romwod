@@ -11,6 +11,11 @@
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Tungsten-B-500.ttf">
+            <string>Font</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RWVideoThumbnail" customModule="ROMWOD" customModuleProvider="target">
             <connections>
@@ -30,13 +35,13 @@
                     <rect key="frame" x="8" y="10" width="359" height="405"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRJ-J8-V5L">
-                            <rect key="frame" x="0.0" y="0.0" width="359" height="20.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <rect key="frame" x="0.0" y="0.0" width="359" height="20"/>
+                            <fontDescription key="fontDescription" name="Font" family="Copyright (C) H&amp;Co | typography.com" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9cD-vR-PuF" userLabel="Video Thumbnail">
-                            <rect key="frame" x="0.0" y="28.5" width="359" height="202"/>
+                            <rect key="frame" x="0.0" y="28" width="359" height="202"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oab-vp-oYr">
                                     <rect key="frame" x="0.0" y="0.0" width="359" height="202"/>
@@ -72,13 +77,13 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5a-Cn-oa6">
-                            <rect key="frame" x="0.0" y="238.5" width="359" height="20.5"/>
+                            <rect key="frame" x="0.0" y="238" width="359" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Description" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCX-Fg-gmx" userLabel="Description">
-                            <rect key="frame" x="0.0" y="267" width="359" height="138"/>
+                            <rect key="frame" x="0.0" y="266.5" width="359" height="138.5"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
