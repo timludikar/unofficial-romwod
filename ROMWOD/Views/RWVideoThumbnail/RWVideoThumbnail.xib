@@ -52,9 +52,8 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zxb-hL-mvS" userLabel="Duration">
-                                    <rect key="frame" x="10" y="171.5" width="42" height="20.5"/>
+                                    <rect key="frame" x="15" y="171.5" width="42" height="20.5"/>
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <edgeInsets key="layoutMargins" top="10" left="10" bottom="10" right="10"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
@@ -68,7 +67,7 @@
                                 <constraint firstItem="RGJ-mg-iqu" firstAttribute="centerY" secondItem="Oab-vp-oYr" secondAttribute="centerY" id="QeJ-nF-fze"/>
                                 <constraint firstItem="RGJ-mg-iqu" firstAttribute="centerX" secondItem="Oab-vp-oYr" secondAttribute="centerX" id="eW8-bE-3kF"/>
                                 <constraint firstItem="Oab-vp-oYr" firstAttribute="centerY" secondItem="9cD-vR-PuF" secondAttribute="centerY" id="jfp-PS-FrW"/>
-                                <constraint firstItem="Zxb-hL-mvS" firstAttribute="leading" secondItem="9cD-vR-PuF" secondAttribute="leading" constant="10" id="rWN-hB-XEo"/>
+                                <constraint firstItem="Zxb-hL-mvS" firstAttribute="leading" secondItem="9cD-vR-PuF" secondAttribute="leading" constant="15" id="rWN-hB-XEo"/>
                                 <constraint firstAttribute="width" secondItem="Oab-vp-oYr" secondAttribute="width" id="u8V-ev-C8N"/>
                             </constraints>
                         </view>
