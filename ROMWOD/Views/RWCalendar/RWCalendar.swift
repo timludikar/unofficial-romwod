@@ -59,7 +59,7 @@ class RWCalendar: UIView {
     }
     
     private func setup(){
-        let screenWidth = Int(self.frame.size.width/7)
+        let screenWidth = Int(self.frame.size.width)/Int(DaysOfTheWeek.count)
         let calendarHeight = Int(self.frame.size.height)
         for (index, dayOfTheWeek) in DaysOfTheWeek.enumerated() {
             let day = UIButton(frame: CGRect(x: (index * screenWidth), y: 0, width: screenWidth, height: calendarHeight))
