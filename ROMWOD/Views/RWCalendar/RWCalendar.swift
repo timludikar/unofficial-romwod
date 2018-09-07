@@ -11,7 +11,7 @@ import UIKit
 @IBDesignable
 class RWCalendar: UIView {
     
-    let DaysOfTheWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    let DaysOfTheWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     var delegate: RWCalendarEventDelegate?
     
     @IBInspectable
