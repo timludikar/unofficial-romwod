@@ -70,8 +70,9 @@ extension ListingViewController: UICollectionViewDataSource {
             let workoutItem = self.videoList.workouts[indexPath.row]
             
             let videoThumbnail = RWVideoThumbnail(frame: cell.bounds)
-            videoThumbnail.dateHeader.text = workoutItem.date.formattedDate
-            videoThumbnail.videoTitle.text = workoutItem.name
+            videoThumbnail.dateHeader.text = workoutItem.date.formattedDate.uppercased()
+            videoThumbnail.videoTitle.text = workoutItem.name.uppercased()
+            
             videoThumbnail.videoDescription.text = workoutItem.description
             
             let duration = Int((workoutItem.video.durationInSeconds / 60).rounded())

@@ -16,8 +16,8 @@ class RWVideoThumbnail: UIView {
     @IBOutlet weak var dateHeader: UILabel!
     @IBOutlet weak var thumbnailImage: UIImageView!
     @IBOutlet weak var videoTitle: UILabel!
+    @IBOutlet weak var videoDuration: RWPaddingLabel!
     @IBOutlet weak var videoDescription: UITextView!
-    @IBOutlet weak var videoDuration: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,6 +35,8 @@ class RWVideoThumbnail: UIView {
         view.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
         self.addSubview(view)
         contentView = view
+        videoDescription.textContainerInset = UIEdgeInsets.zero
+        videoDescription.textContainer.lineFragmentPadding = 0
     }
     
     func loadViewFromNib() -> UIView? {
