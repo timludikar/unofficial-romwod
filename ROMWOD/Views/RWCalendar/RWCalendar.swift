@@ -65,6 +65,7 @@ class RWCalendar: UIView {
             let day = UIButton(frame: CGRect(x: (index * screenWidth), y: 0, width: screenWidth, height: calendarHeight))
             day.addTarget(self, action: #selector(self.tapFunction(_:)), for: UIControlEvents.allTouchEvents)
             let title = dayOfTheWeek.prefix(3).uppercased()
+            day.titleLabel?.font = UIFont(name: "Oswald-Medium", size: 12)
             day.setTitleColor(UIColor.black, for: .normal)
             day.setTitle(title, for: UIControlState.normal)
             day.tag = index
