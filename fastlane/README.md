@@ -36,6 +36,11 @@ fastlane ios keychain
 fastlane ios build
 ```
 Build Application
+### ios travis
+```
+fastlane ios travis
+```
+Travis CI branch build
 ### ios beta
 ```
 fastlane ios beta
