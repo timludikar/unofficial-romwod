@@ -8,17 +8,40 @@
 
 import UIKit
 
+protocol RWVideoThumbnailDelegate {
+    func video(_ video: RWVideoThumbnail, didSelectPlayButton index: Bool )
+}
+
+@IBDesignable
 class RWVideoThumbnail: UIView {
 
     let nibName = "RWVideoThumbnail"
     private var contentView: UIView?
     
+    var delegate: RWVideoThumbnailDelegate? {
+        didSet {
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(self.imageTapGesture(_:)))
+            videoThumbnail.addGestureRecognizer(gesture)
+        }
+    }
+    
+    var isVideoPlayback = false {
+        didSet{
+//            if(isVideoPlayback){
+                videoThumbnail.isHidden = isVideoPlayback
+//            } else {
+//                videoThumbnail.isHidden =
+//            }
+        }
+    }
+    
+    @IBOutlet weak var videoThumbnail: UIView!
     @IBOutlet weak var dateHeader: UILabel!
     @IBOutlet weak var thumbnailImage: UIImageView!
     @IBOutlet weak var videoTitle: UILabel!
     @IBOutlet weak var videoDuration: RWPaddingLabel!
     @IBOutlet weak var videoDescription: UITextView!
-    
+        
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -37,6 +60,10 @@ class RWVideoThumbnail: UIView {
         contentView = view
         videoDescription.textContainerInset = UIEdgeInsets.zero
         videoDescription.textContainer.lineFragmentPadding = 0
+    }
+    
+    @objc private func imageTapGesture(_ sender: UITapGestureRecognizer){
+        delegate?.video(self, didSelectPlayButton: true)
     }
     
     func loadViewFromNib() -> UIView? {

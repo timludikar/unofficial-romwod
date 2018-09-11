@@ -6,4 +6,11 @@
 //  Copyright © 2018 Tim Ludikar. All rights reserved.
 //
 
-import Foundation
+import AVFoundation
+
+extension AVPlayer {
+    var isPlaying: Bool {
+        return rate != 0 && error == nil
+    }
+}
+

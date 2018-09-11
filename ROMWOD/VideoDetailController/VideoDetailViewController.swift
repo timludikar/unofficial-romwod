@@ -8,37 +8,46 @@
 
 import UIKit
 import AVKit
-import AVFoundation
+//import AVFoundation
 
 class VideoDetailViewController: UIViewController {
     
     var workout: ScheduledWorkouts?
     var videoOptions: [Asset]?
+    var videoPlayerController = AVPlayerViewController()
     
-    @IBOutlet weak var playBackButton: UIButton!
-    @IBOutlet weak var thumbnailImage: UIImageView!
     
-    @IBAction func playVideo(_ sender: UIButton) {
-
-        let player = AVPlayer(playerItem: self.createAVPlayerItem(from: "hls_video", at: "720p"))
-        let vc = AVPlayerViewController()
-        vc.player = player
-        present(vc, animated: true) {
-            vc.player!.play()
-        }
+    @IBOutlet weak var videoThumbnail: RWVideoThumbnail!
+    
+    private func createVideoLayer() {
+        let player = AVPlayer(playerItem: self.createAVPlayerItem(from: "hls_video", at: "1080p"))
+        videoPlayerController.player = player
+        videoPlayerController.view.frame = videoThumbnail.videoThumbnail.bounds
+        addChildViewController(videoPlayerController)
+        videoPlayerController.player?.automaticallyWaitsToMinimizeStalling = true
+        videoPlayerController.player?.play()
+        videoThumbnail.videoThumbnail.addSubview(videoPlayerController.view)
+    }
+    
+    private func setup(){
+        guard let workout = workout else { return }
+        let duration = Int((workout.video.durationInSeconds / 60).rounded())
+        videoThumbnail.videoDuration.text = "\(duration) Min".uppercased()
     }
     
     private func setupVideoDetails(){
         ImageLibrary().fetch(from: (workout?.video.thumbnail.url)!) { (image) in
             DispatchQueue.main.async {
-                self.thumbnailImage.image = image
+                self.videoThumbnail.thumbnailImage.image = image
             }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
         setupVideoDetails()
+        videoThumbnail.delegate = self
         guard let externalId = workout?.video.externalId, let slug = workout?.video.slug else { return }
         let request = "https://fast.wistia.com/embed/medias/\(externalId).json"
         let url = URL(string: request)!
@@ -50,7 +59,7 @@ class VideoDetailViewController: UIViewController {
             switch result {
             case let .success(data):
                 DispatchQueue.main.async {
-                    self.playBackButton.isEnabled = true
+//                    self.playBackButton.isEnabled = true
                 }
                 self.videoOptions = data.media.assets
 
@@ -65,7 +74,15 @@ class VideoDetailViewController: UIViewController {
             videoInfo.type == type && videoInfo.displayName == quality
         }).first!
         
-        let videoAsset = AVAsset(url: (video?.url)!)
+        let url = video?.url.appendingPathExtension((video?.extType)!)
+        let videoAsset = AVURLAsset(url: url!)
         return AVPlayerItem(asset: videoAsset)
+    }
+}
+
+extension VideoDetailViewController: RWVideoThumbnailDelegate {
+    func video(_ video: RWVideoThumbnail, didSelectPlayButton index: Bool) {
+        createVideoLayer()
+        print("Video Selected")
     }
 }

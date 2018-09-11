@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
+   <Group
+      location = "group:../ROMWOD/Fonts"
+      name = "Fonts">
+      <FileRef
+         location = "group:Tungsten-A-500.woff2">
+      </FileRef>
+      <FileRef
+         location = "group:Tungsten-A-400.woff2">
+      </FileRef>
+      <FileRef
+         location = "group:Tungsten-B-500.woff2">
+      </FileRef>
+      <FileRef
+         location = "group:Tungsten-B-400.woff2">
+      </FileRef>
+   </Group>
    <FileRef
-      location = "self:ROMWOD.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>

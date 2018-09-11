@@ -29,6 +29,7 @@
                 <outlet property="thumbnailImage" destination="Oab-vp-oYr" id="gHA-kj-gSo"/>
                 <outlet property="videoDescription" destination="dCX-Fg-gmx" id="DWv-TI-O82"/>
                 <outlet property="videoDuration" destination="Zxb-hL-mvS" id="mCe-aV-2tB"/>
+                <outlet property="videoThumbnail" destination="9cD-vR-PuF" id="rTE-Yr-6s3"/>
                 <outlet property="videoTitle" destination="j5a-Cn-oa6" id="m2f-j0-Ktl"/>
             </connections>
         </placeholder>
@@ -41,29 +42,31 @@
                     <rect key="frame" x="10" y="10" width="355" height="344"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRJ-J8-V5L">
-                            <rect key="frame" x="0.0" y="0.0" width="355" height="22.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="355" height="17.5"/>
                             <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9cD-vR-PuF" userLabel="Video Thumbnail">
-                            <rect key="frame" x="0.0" y="30.5" width="355" height="200"/>
+                            <rect key="frame" x="0.0" y="25.5" width="355" height="200"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oab-vp-oYr">
                                     <rect key="frame" x="0.0" y="0.0" width="355" height="200"/>
+                                    <gestureRecognizers/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="Oab-vp-oYr" secondAttribute="height" multiplier="16:9" id="3l5-Ua-aFg"/>
                                     </constraints>
                                 </imageView>
                                 <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Play Button" translatesAutoresizingMaskIntoConstraints="NO" id="RGJ-mg-iqu">
                                     <rect key="frame" x="128.5" y="74" width="98" height="52"/>
+                                    <gestureRecognizers/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="52" id="6n8-Ax-aRb"/>
                                         <constraint firstAttribute="width" secondItem="RGJ-mg-iqu" secondAttribute="height" multiplier="15:8" id="lFR-HK-cpZ"/>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zxb-hL-mvS" userLabel="Duration" customClass="RWPaddingLabel" customModule="ROMWOD" customModuleProvider="target">
-                                    <rect key="frame" x="15" y="159.5" width="41" height="30.5"/>
+                                    <rect key="frame" x="15" y="164.5" width="49" height="25.5"/>
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" name="Oswald-Regular" family="Oswald" pointSize="15"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -97,13 +100,13 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5a-Cn-oa6">
-                            <rect key="frame" x="0.0" y="238.5" width="355" height="30"/>
+                            <rect key="frame" x="0.0" y="233.5" width="355" height="23.5"/>
                             <fontDescription key="fontDescription" name="Oswald-Medium" family="Oswald" pointSize="20"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Description" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCX-Fg-gmx" userLabel="Description" customClass="RWPaddingLabel">
-                            <rect key="frame" x="0.0" y="276.5" width="355" height="67.5"/>
+                            <rect key="frame" x="0.0" y="265" width="355" height="79"/>
                             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" name="Oswald-Light" family="Oswald" pointSize="15"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
