@@ -8,26 +8,18 @@
 
 import UIKit
 import AVKit
-//import AVFoundation
+
+var videoViewController: RWVideoPlayer?
+var window: UIWindow?
 
 class VideoDetailViewController: UIViewController {
     
     var workout: ScheduledWorkouts?
     var videoOptions: [Asset]?
     var videoPlayerController = AVPlayerViewController()
-    
+    var externalVideoDisplay = false
     
     @IBOutlet weak var videoThumbnail: RWVideoThumbnail!
-    
-    private func createVideoLayer() {
-        let player = AVPlayer(playerItem: self.createAVPlayerItem(from: "hls_video", at: "1080p"))
-        videoPlayerController.player = player
-        videoPlayerController.view.frame = videoThumbnail.videoThumbnail.bounds
-        addChildViewController(videoPlayerController)
-        videoPlayerController.player?.automaticallyWaitsToMinimizeStalling = true
-        videoPlayerController.player?.play()
-        videoThumbnail.videoThumbnail.addSubview(videoPlayerController.view)
-    }
     
     private func setup(){
         guard let workout = workout else { return }
@@ -43,10 +35,21 @@ class VideoDetailViewController: UIViewController {
         }
     }
     
+    private func addVideo(){
+        videoViewController?.setViewControllerSize(videoThumbnail.videoThumbnail.bounds)
+        addChildViewController(videoViewController!)
+        videoThumbnail.videoThumbnail.addSubview((videoViewController?.view)!)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         setupVideoDetails()
+        
+        if(videoViewController != nil) {
+            addVideo()
+        }
+        
         videoThumbnail.delegate = self
         guard let externalId = workout?.video.externalId, let slug = workout?.video.slug else { return }
         let request = "https://fast.wistia.com/embed/medias/\(externalId).json"
@@ -68,21 +71,15 @@ class VideoDetailViewController: UIViewController {
             }
         }
     }
-    
-    private func createAVPlayerItem(from type: String, at quality: String) -> AVPlayerItem{
-        let video = videoOptions?.filter({ (videoInfo) -> Bool in
-            videoInfo.type == type && videoInfo.displayName == quality
-        }).first!
-        
-        let url = video?.url.appendingPathExtension((video?.extType)!)
-        let videoAsset = AVURLAsset(url: url!)
-        return AVPlayerItem(asset: videoAsset)
-    }
 }
 
 extension VideoDetailViewController: RWVideoThumbnailDelegate {
     func video(_ video: RWVideoThumbnail, didSelectPlayButton index: Bool) {
-        createVideoLayer()
-        print("Video Selected")
+        if(videoViewController == nil) {
+            videoViewController = RWVideoPlayer()
+        }
+        videoViewController?.videoOptions = videoOptions
+        addVideo()
+        videoViewController?.playVideo()
     }
 }
