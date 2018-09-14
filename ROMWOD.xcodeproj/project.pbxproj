@@ -18,6 +18,7 @@
 		900B495B2142FEFF00A53D57 /* RWPaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900B495A2142FEFF00A53D57 /* RWPaddingLabel.swift */; };
 		900B496121485E0900A53D57 /* AVPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900B496021485E0900A53D57 /* AVPlayer.swift */; };
 		900B496321495EBE00A53D57 /* RWVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900B496221495EBE00A53D57 /* RWVideoPlayer.swift */; };
+		900B49662149B62500A53D57 /* RWNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900B49652149B62500A53D57 /* RWNavigationController.swift */; };
 		901A9E3E211A3418003E1EB3 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A9E3C211A3418003E1EB3 /* Date.swift */; };
 		901A9E3F211A3418003E1EB3 /* DateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A9E3D211A3418003E1EB3 /* DateWrapper.swift */; };
 		901A9E43211B1DA1003E1EB3 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A9E42211B1DA1003E1EB3 /* Regex.swift */; };
@@ -95,6 +96,7 @@
 		900B495A2142FEFF00A53D57 /* RWPaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWPaddingLabel.swift; sourceTree = "<group>"; };
 		900B496021485E0900A53D57 /* AVPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayer.swift; sourceTree = "<group>"; };
 		900B496221495EBE00A53D57 /* RWVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWVideoPlayer.swift; sourceTree = "<group>"; };
+		900B49652149B62500A53D57 /* RWNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RWNavigationController.swift; path = ROMWOD/Views/RWNavigationController.swift; sourceTree = SOURCE_ROOT; };
 		901A9E3C211A3418003E1EB3 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		901A9E3D211A3418003E1EB3 /* DateWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateWrapper.swift; sourceTree = "<group>"; };
 		901A9E42211B1DA1003E1EB3 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
@@ -383,6 +385,7 @@
 		90B7AE34211227A700BA2905 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				900B49652149B62500A53D57 /* RWNavigationController.swift */,
 				90E6B0A02140691D0043C045 /* RWVideoThumbnail */,
 				906AAB21213ED74B0027A37B /* RWTitleBar */,
 				906AAB20213ED7400027A37B /* RWNavigationBar */,
@@ -616,6 +619,7 @@
 				900B496121485E0900A53D57 /* AVPlayer.swift in Sources */,
 				90259515210A06370056987E /* ScheduleResponse.swift in Sources */,
 				901A9E93212317D4003E1EB3 /* VideoList.swift in Sources */,
+				900B49662149B62500A53D57 /* RWNavigationController.swift in Sources */,
 				900B495B2142FEFF00A53D57 /* RWPaddingLabel.swift in Sources */,
 				901A9E3E211A3418003E1EB3 /* Date.swift in Sources */,
 				90259519210A18200056987E /* Response.swift in Sources */,

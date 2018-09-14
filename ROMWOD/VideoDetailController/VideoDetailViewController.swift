@@ -9,9 +9,6 @@
 import UIKit
 import AVKit
 
-var videoViewController: RWVideoPlayer?
-var window: UIWindow?
-
 class VideoDetailViewController: UIViewController {
     
     var workout: ScheduledWorkouts?
@@ -19,26 +16,28 @@ class VideoDetailViewController: UIViewController {
     var videoPlayerController = AVPlayerViewController()
     var externalVideoDisplay = false
     
-    @IBOutlet weak var videoThumbnail: RWVideoThumbnail!
+    @IBOutlet weak var videoPlayer: RWVideoPlayer!
     
     private func setup(){
         guard let workout = workout else { return }
-        let duration = Int((workout.video.durationInSeconds / 60).rounded())
-        videoThumbnail.videoDuration.text = "\(duration) Min".uppercased()
+//        let duration = Int((workout.video.durationInSeconds / 60).rounded())
+//        videoThumbnail.videoDuration.text = "\(duration) Min".uppercased()
     }
     
     private func setupVideoDetails(){
         ImageLibrary().fetch(from: (workout?.video.thumbnail.url)!) { (image) in
             DispatchQueue.main.async {
-                self.videoThumbnail.thumbnailImage.image = image
+//                self.videoThumbnail.thumbnailImage.image = image
             }
         }
     }
     
-    private func addVideo(){
-        videoViewController?.setViewControllerSize(videoThumbnail.videoThumbnail.bounds)
-        addChildViewController(videoViewController!)
-        videoThumbnail.videoThumbnail.addSubview((videoViewController?.view)!)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let nvc = UIApplication.shared.keyWindow?.rootViewController as? RWNavigationController {
+            nvc.loadVideo(videoPlayer)
+        }
+//        if let nvc = UIApplication.shared
     }
     
     override func viewDidLoad() {
@@ -46,11 +45,15 @@ class VideoDetailViewController: UIViewController {
         setup()
         setupVideoDetails()
         
-        if(videoViewController != nil) {
-            addVideo()
+        if let nvc = UIApplication.shared.keyWindow?.rootViewController as? RWNavigationController {
+            if let videoPlayer = nvc.stopVideo() {
+                videoPlayer.frame = view.subviews[0].bounds
+                view.addSubview(videoPlayer)
+                self.videoPlayer = videoPlayer
+//                view.addSubview(videoPlayer)
+            }
         }
         
-        videoThumbnail.delegate = self
         guard let externalId = workout?.video.externalId, let slug = workout?.video.slug else { return }
         let request = "https://fast.wistia.com/embed/medias/\(externalId).json"
         let url = URL(string: request)!
@@ -63,9 +66,14 @@ class VideoDetailViewController: UIViewController {
             case let .success(data):
                 DispatchQueue.main.async {
 //                    self.playBackButton.isEnabled = true
+                    
                 }
-                self.videoOptions = data.media.assets
-
+                self.videoPlayer.videoOptions = data.media.assets
+                let playerItem = self.videoPlayer.createAVPlayerItem(from: "hls_video", at: "1080p")
+                self.videoPlayer.player = AVQueuePlayer(playerItem: playerItem)
+                self.videoPlayer.player?.play()
+                
+                
             case .failure(_):
                 print("error")
             }
@@ -73,13 +81,3 @@ class VideoDetailViewController: UIViewController {
     }
 }
 
-extension VideoDetailViewController: RWVideoThumbnailDelegate {
-    func video(_ video: RWVideoThumbnail, didSelectPlayButton index: Bool) {
-        if(videoViewController == nil) {
-            videoViewController = RWVideoPlayer()
-        }
-        videoViewController?.videoOptions = videoOptions
-        addVideo()
-        videoViewController?.playVideo()
-    }
-}
