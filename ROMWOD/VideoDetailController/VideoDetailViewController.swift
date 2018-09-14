@@ -27,7 +27,8 @@ class VideoDetailViewController: UIViewController {
     private func setupVideoDetails(){
         ImageLibrary().fetch(from: (workout?.video.thumbnail.url)!) { (image) in
             DispatchQueue.main.async {
-//                self.videoThumbnail.thumbnailImage.image = image
+                let imageView = UIImageView(image: image)
+                self.videoPlayer.thumbnail = imageView
             }
         }
     }
@@ -37,22 +38,12 @@ class VideoDetailViewController: UIViewController {
         if let nvc = UIApplication.shared.keyWindow?.rootViewController as? RWNavigationController {
             nvc.loadVideo(videoPlayer)
         }
-//        if let nvc = UIApplication.shared
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         setupVideoDetails()
-        
-        if let nvc = UIApplication.shared.keyWindow?.rootViewController as? RWNavigationController {
-            if let videoPlayer = nvc.stopVideo() {
-                videoPlayer.frame = view.subviews[0].bounds
-                view.addSubview(videoPlayer)
-                self.videoPlayer = videoPlayer
-//                view.addSubview(videoPlayer)
-            }
-        }
         
         guard let externalId = workout?.video.externalId, let slug = workout?.video.slug else { return }
         let request = "https://fast.wistia.com/embed/medias/\(externalId).json"
@@ -64,15 +55,9 @@ class VideoDetailViewController: UIViewController {
 
             switch result {
             case let .success(data):
-                DispatchQueue.main.async {
-//                    self.playBackButton.isEnabled = true
-                    
-                }
                 self.videoPlayer.videoOptions = data.media.assets
                 let playerItem = self.videoPlayer.createAVPlayerItem(from: "hls_video", at: "1080p")
                 self.videoPlayer.player = AVQueuePlayer(playerItem: playerItem)
-                self.videoPlayer.player?.play()
-                
                 
             case .failure(_):
                 print("error")
